@@ -14,13 +14,16 @@ public class BaseGun : MonoBehaviour
     public Transform firePoint;
     private float timer;
     private bool isReloading;
+    private bool canShoot = true;
     // Update is called once per frame
     void Update()
     {
         RotateGunTowardsCursor();
         timer += Time.deltaTime;
+        canShoot = false;
         if(Input.GetKey(KeyCode.Mouse0) && timer >= fireRate && bulletsAmount > 0 && !isReloading)
-        {
+        {   
+            canShoot = true;
             Shoot();
             timer = 0;
         }
@@ -51,6 +54,7 @@ public class BaseGun : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
+        canShoot= false;
         Debug.Log("Reloading...");
         yield return new WaitForSeconds(reloadTime);
         int bulletToReload = maxBullets - bulletsAmount;
@@ -65,5 +69,6 @@ public class BaseGun : MonoBehaviour
         }
         
         isReloading = false;
+        canShoot = true;
     }
 }
