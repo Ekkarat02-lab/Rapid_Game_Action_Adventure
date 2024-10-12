@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2063687777002328964
+--- !u!1 &1572680842607491718
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1624482328593006335}
+  - component: {fileID: 6212531879425262406}
   m_Layer: 0
-  m_Name: FireRate
+  m_Name: groundCheck (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1624482328593006335
+--- !u!4 &6212531879425262406
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063687777002328964}
+  m_GameObject: {fileID: 1572680842607491718}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.03, y: -0.060000062, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64,7 +64,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1624482328593006335}
+  - {fileID: 6212531879425262406}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7301099852496264781
@@ -131,7 +131,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -145,7 +145,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6434061526350516214
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,8 +203,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc943d02112d39428a8df2fc4eee723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   maxHP: 100
   currentHP: 0
   detectionRange: 5
   player: {fileID: 0}
   moveSpeed: 2
+  chaseSpeed: 3
+  moveDirection: {x: 3, y: 0}
+  patrolDistance: 5
+  directionAttack: 3
+  jumpForce: 5
+  rayPointG: {fileID: 0}
+  rayDistanceG: 0

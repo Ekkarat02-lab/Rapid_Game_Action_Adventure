@@ -9,7 +9,7 @@ public class Enemy : BaseEnemyBehavior
     private GameObject player;
     private float nextFireTime;
 
-    void Start()
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         currentHP = maxHP;
@@ -17,7 +17,7 @@ public class Enemy : BaseEnemyBehavior
 
     private void Update()
     {
-        if (player != null && Vector2.Distance(transform.position, player.transform.position) < detectionRange)
+        if (player != null && Vector2.Distance(transform.position, player.transform.position) <= detectionRange)
         {
             if (Time.time >= nextFireTime)
             {
@@ -30,9 +30,7 @@ public class Enemy : BaseEnemyBehavior
     void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
         Vector2 direction = (player.transform.position - firePoint.position).normalized;
-
         bullet.GetComponent<Bullet>().Initialize(direction);
     }
 }

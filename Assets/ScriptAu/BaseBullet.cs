@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -25,15 +26,19 @@ public class BaseBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collider2D hitInfo)
+
+    private void OnCollisionEnter2D(Collision2D hitInfo)
     {
-        Debug.Log(hitInfo.name);
-        Destroy(gameObject);
+        if (hitInfo.gameObject.CompareTag("Enemy"))
+        {
+            //Destroy(hitInfo.gameObject);
+            Destroy(gameObject);
+        }
     }
+
     public void ChangeValue(float value)
     {
         damage = value;
 
     }
-
 }
