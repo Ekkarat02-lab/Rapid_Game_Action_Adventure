@@ -1,16 +1,13 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : BaseEnemyBehavior
 {
-    public GameObject bulletPrefab; 
+    public GameObject bulletPrefab;
     public Transform firePoint;
-    public float detectionRange = 5f;
-    public float fireRate = 1f; 
-    public int maxHP = 100;
+    public float fireRate = 1f;
 
-    private int currentHP;
-    private GameObject player; 
-    private float nextFireTime; 
+    private GameObject player;
+    private float nextFireTime;
 
     void Start()
     {
@@ -18,7 +15,7 @@ public class Enemy : MonoBehaviour
         currentHP = maxHP;
     }
 
-    void Update()
+    private void Update()
     {
         if (player != null && Vector2.Distance(transform.position, player.transform.position) < detectionRange)
         {
@@ -37,26 +34,5 @@ public class Enemy : MonoBehaviour
         Vector2 direction = (player.transform.position - firePoint.position).normalized;
 
         bullet.GetComponent<Bullet>().Initialize(direction);
-    }
-
-    public void TakeDamage(int damage)
-    {
-        currentHP -= damage;
-
-        if (currentHP <= 0)
-        {
-            Die(); 
-        }
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }
