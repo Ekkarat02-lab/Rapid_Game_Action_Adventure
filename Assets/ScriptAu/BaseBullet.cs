@@ -9,6 +9,7 @@ public class BaseBullet : MonoBehaviour
     public Rigidbody2D rb;
     public float lifeTime = 2f;
     private float timer;
+    public float damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,4 +30,10 @@ public class BaseBullet : MonoBehaviour
         Debug.Log(hitInfo.name);
         Destroy(gameObject);
     }
+    public void ChangeValue(float value)
+    {
+        damage = value;
+
+    }
+
 }
