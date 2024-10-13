@@ -31,7 +31,11 @@ public class BaseBullet : MonoBehaviour
     {
         if (hitInfo.gameObject.CompareTag("Enemy"))
         {
-            //Destroy(hitInfo.gameObject);
+            EnemyState enemyState = hitInfo.gameObject.GetComponent<EnemyState>();
+            if (enemyState != null)
+            {
+                enemyState.CurrentHealth -= 1;
+            }
             Destroy(gameObject);
         }
     }

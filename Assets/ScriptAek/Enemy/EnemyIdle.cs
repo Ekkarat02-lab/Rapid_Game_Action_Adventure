@@ -12,7 +12,7 @@ public class Enemy : EnemyState
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        currentHP = maxHP;
+        CurrentHealth = maxHP;
     }
 
     private void Update()

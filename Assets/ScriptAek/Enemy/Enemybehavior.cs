@@ -95,8 +95,11 @@ public class EnemyBehavior : EnemyState
     {
         if (collision.gameObject.CompareTag("Player") && currentState == State.Attack)
         {
-            Destroy(collision.gameObject); 
-            Debug.Log("Player destroyed!");
+            PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
+            if (playerStats != null)
+            {
+                playerStats.CurrentHealth -= 1;
+            }
         }
         else if (collision.gameObject.CompareTag("Bullet"))
         {
@@ -143,8 +146,7 @@ public class EnemyBehavior : EnemyState
             isGrounded = false; // Set isGrounded to false after jumping
         }
     }
-
-
+    
     public void groundCheck()
     {
         if (rayPointG == null)
