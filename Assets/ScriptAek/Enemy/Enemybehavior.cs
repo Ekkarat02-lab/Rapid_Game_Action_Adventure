@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class EnemyBehavior : BaseEnemyBehavior
+public class EnemyBehavior : EnemyState
 {
     [Header("Player Detection and Movement")]
-    public Transform player;
     public float moveSpeed = 2f; 
     public float chaseSpeed = 4f;
     public Vector2 moveDirection = Vector2.right;
     public float patrolDistance = 5f;
     private Vector2 startPosition;
+    private Transform player; // Changed from public to private
 
     [Header("Attack and Jump")]
     public float DetectionAttack = 1.5f;
@@ -24,42 +24,55 @@ public class EnemyBehavior : BaseEnemyBehavior
     private void Start()
     {
         startPosition = transform.position;
-        currentState = EnemyState.Move;
+        currentState = State.Move;
         rb = GetComponent<Rigidbody2D>();  // Get the Rigidbody2D component
         groundLayerIndex = LayerMask.NameToLayer("groundLayer");
+        player = GameObject.FindGameObjectWithTag("Player")?.transform; // Find player by tag
     }
 
     private void Update()
     {
-        // Return early if player is null
+        // Update player reference if it is null
         if (player == null)
         {
-            return;
+            player = GameObject.FindGameObjectWithTag("Player")?.transform; // Update reference if player was lost
         }
 
         base.Update();
         groundCheck();
     
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        // Check if the player exists
+        if (player != null)
+        {
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= DetectionAttack)
-        {
-            currentState = EnemyState.Attack;
+            // Check if the player is within the attack distance
+            if (distanceToPlayer <= DetectionAttack)
+            {
+                currentState = State.Attack; // Change state to Attack when player is in range
+            }
+            else if (distanceToPlayer <= detectionRange)
+            {
+                currentState = State.Chase; // Change state to Chase when player is within detection range
+            }
+            else
+            {
+                currentState = State.Move; // Change state to Move when player is out of detection range
+            }
         }
-        else if (distanceToPlayer <= detectionRange)
+        else
         {
-            currentState = EnemyState.Chase;
-        }
-        else if (currentState == EnemyState.Chase && distanceToPlayer > detectionRange)
-        {
-            currentState = EnemyState.Move;
+            // If player is null, switch state to Move and continue moving
+            currentState = State.Move; // Set state to Move when player is gone
         }
     }
 
     protected override void MoveBehavior()
     {
+        // Move the enemy using moveDirection and moveSpeed
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
+        // Reverse direction if patrol distance is reached
         if (Vector2.Distance(startPosition, transform.position) >= patrolDistance)
         {
             moveDirection = -moveDirection; // Reverse direction when patrolDistance is reached
@@ -80,7 +93,7 @@ public class EnemyBehavior : BaseEnemyBehavior
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && currentState == EnemyState.Attack)
+        if (collision.gameObject.CompareTag("Player") && currentState == State.Attack)
         {
             Destroy(collision.gameObject); 
             Debug.Log("Player destroyed!");
@@ -127,9 +140,10 @@ public class EnemyBehavior : BaseEnemyBehavior
             Vector2 jumpDirection = (player.position - transform.position).normalized;
             rb.velocity = new Vector2(jumpDirection.x * moveSpeed, jumpForce);
             Debug.Log("Jumping towards Player!");
-            isGrounded = false;
+            isGrounded = false; // Set isGrounded to false after jumping
         }
     }
+
 
     public void groundCheck()
     {

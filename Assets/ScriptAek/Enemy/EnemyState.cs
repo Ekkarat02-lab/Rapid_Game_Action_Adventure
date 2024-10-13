@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public class BaseEnemyBehavior : MonoBehaviour
+public class EnemyState : MonoBehaviour
 {
-    public enum EnemyState { Idle, Move, Chase, Attack, Dead }  // เพิ่ม Move
-    public EnemyState currentState = EnemyState.Idle;            // สถานะเริ่มต้นเป็น Idle
+    public enum State { Idle, Move, Chase, Attack, Dead }  // เพิ่ม Move
+    public State currentState = State.Idle;            // สถานะเริ่มต้นเป็น Idle
 
     public int maxHP = 100;
     public int currentHP;
     public float detectionRange = 5f;  // ระยะที่ศัตรูตรวจจับผู้เล่น
 
-    private void Start()
+    public void Start()
     {
         currentHP = maxHP;
-        currentState = EnemyState.Move; // เริ่มต้นด้วยการเดิน
+        currentState = State.Move; // เริ่มต้นด้วยการเดิน
     }
 
     public void Update()
@@ -20,19 +20,19 @@ public class BaseEnemyBehavior : MonoBehaviour
         // Behavior updates based on the current state
         switch (currentState)
         {
-            case EnemyState.Idle:
+            case State.Idle:
                 IdleBehavior();
                 break;
-            case EnemyState.Move:
+            case State.Move:
                 MoveBehavior();
                 break;
-            case EnemyState.Chase:
+            case State.Chase:
                 ChaseBehavior();
                 break;
-            case EnemyState.Attack:
+            case State.Attack:
                 AttackBehavior();
                 break;
-            case EnemyState.Dead:
+            case State.Dead:
                 DeadBehavior();
                 break;
         }
@@ -45,7 +45,7 @@ public class BaseEnemyBehavior : MonoBehaviour
 
         if (currentHP <= 0)
         {
-            currentState = EnemyState.Dead;  // State Dead
+            currentState = State.Dead;  // State Dead
         }
     }
 

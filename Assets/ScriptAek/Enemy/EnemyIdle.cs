@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : BaseEnemyBehavior
+public class Enemy : EnemyState
 {
     public GameObject bulletPrefab;
     public Transform firePoint;

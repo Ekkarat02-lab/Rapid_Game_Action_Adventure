@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2095101316195611701}
   - component: {fileID: 5405415689106682017}
   - component: {fileID: 1967703228464892841}
-  - component: {fileID: 6988105935123274260}
+  - component: {fileID: 3853662095782359396}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0000029, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6988105935123274260
+--- !u!114 &3853662095782359396
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,11 +144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116b94eea2d408b44969bb900ac676b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7803903482384027142, guid: 77b993f45c4b84148bf2be81999509f4, type: 3}
-  firePoint: {fileID: 8365913715689800798}
-  detectionRange: 5
-  fireRate: 1
+  currentState: 0
   maxHP: 100
+  currentHP: 0
+  detectionRange: 5
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  fireRate: 1
 --- !u!1 &2670519268843226987
 GameObject:
   m_ObjectHideFlags: 0
