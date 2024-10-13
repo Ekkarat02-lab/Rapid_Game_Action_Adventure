@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6212531879425262406}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: groundCheck (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5747621699928614251}
   - component: {fileID: 6434061526350516214}
   - component: {fileID: 3215619233150373412}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -207,12 +207,11 @@ MonoBehaviour:
   maxHP: 100
   currentHP: 0
   detectionRange: 5
-  player: {fileID: 0}
   moveSpeed: 2
   chaseSpeed: 3
   moveDirection: {x: 3, y: 0}
   patrolDistance: 5
-  directionAttack: 3
+  DetectionAttack: 1.5
   jumpForce: 5
   rayPointG: {fileID: 0}
   rayDistanceG: 0

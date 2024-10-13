@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5405415689106682017}
   - component: {fileID: 1967703228464892841}
   - component: {fileID: 3853662095782359396}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8365913715689800798}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FireRate
   m_TagString: Untagged
   m_Icon: {fileID: 0}

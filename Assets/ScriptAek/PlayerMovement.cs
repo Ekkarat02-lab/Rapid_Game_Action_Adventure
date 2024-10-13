@@ -57,9 +57,9 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            
+            PickupItem();
         }
         FlipCharacterTowardsCursor();
     }
@@ -162,11 +162,14 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Complete"))
+        /*if (collision.CompareTag("Complete"))
         {
             gameObject.tag = "Complete";
             //GameManager.Instance.CheckForCompletion();
-        }
+        }*/
     }
+    public void PickupItem()
+    {
 
+    }
 }

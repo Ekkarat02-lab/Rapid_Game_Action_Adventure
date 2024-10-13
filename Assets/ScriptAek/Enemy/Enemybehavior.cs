@@ -142,7 +142,7 @@ public class EnemyBehavior : EnemyState
         {
             Vector2 jumpDirection = (player.position - transform.position).normalized;
             rb.velocity = new Vector2(jumpDirection.x * moveSpeed, jumpForce);
-            Debug.Log("Jumping towards Player!");
+            //Debug.Log("Jumping towards Player!");
             isGrounded = false; // Set isGrounded to false after jumping
         }
     }

@@ -105,6 +105,37 @@ MonoBehaviour:
   fireRate: 0.5
   bulletPrefab: {fileID: 6547416070569555204, guid: af9ecc8e3308b914e81099a717233103, type: 3}
   firePoint: {fileID: 4693478106781529835}
+--- !u!1 &4003606813113691127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 203834134647117755}
+  m_Layer: 0
+  m_Name: Melee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &203834134647117755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4003606813113691127}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.186, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4560506024788428398}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5328980013057420405
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +183,7 @@ GameObject:
   - component: {fileID: 4957887118492646209}
   - component: {fileID: 7522715279310086237}
   - component: {fileID: 797770193896087245}
+  - component: {fileID: 7441319806810487973}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -174,6 +206,7 @@ Transform:
   m_Children:
   - {fileID: 6789101393401570315}
   - {fileID: 3534031938981376581}
+  - {fileID: 203834134647117755}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8831597001606934584
@@ -299,7 +332,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &-6558563113626835700
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -390,6 +423,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCollider: {fileID: 1075008499868036429}
+--- !u!114 &7441319806810487973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489821562834176108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21dc90df12b2074da749016cbc362d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAttack: 0.3
+  meleePos: {fileID: 203834134647117755}
+  Enemies:
+    serializedVersion: 2
+    m_Bits: 128
+  attackRange: 0.77
+  damage: 1
 --- !u!1 &8438535968242045753
 GameObject:
   m_ObjectHideFlags: 0
