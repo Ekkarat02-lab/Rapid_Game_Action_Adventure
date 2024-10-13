@@ -100,6 +100,10 @@ public class EnemyBehavior : EnemyState
             {
                 playerStats.CurrentHealth -= 1;
             }
+            if(playerStats.CurrentHealth == 0)
+            {
+                Destroy(collision.gameObject);
+            }
         }
         else if (collision.gameObject.CompareTag("Bullet"))
         {

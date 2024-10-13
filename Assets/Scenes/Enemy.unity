@@ -175,6 +175,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3853662095782359396, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: maxHP
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853662095782359396, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1501948458}
@@ -182,6 +186,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 7803903482384027142, guid: 77b993f45c4b84148bf2be81999509f4, type: 3}
+    - target: {fileID: 3853662095782359396, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: CurrentHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.06
@@ -1917,6 +1925,10 @@ PrefabInstance:
       value: groundCheck
       objectReference: {fileID: 0}
     - target: {fileID: 3215619233150373412, guid: fdb6b852f78e8154da08e723b843341e, type: 3}
+      propertyPath: maxHP
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215619233150373412, guid: fdb6b852f78e8154da08e723b843341e, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1594307358}
@@ -1927,6 +1939,10 @@ PrefabInstance:
     - target: {fileID: 3215619233150373412, guid: fdb6b852f78e8154da08e723b843341e, type: 3}
       propertyPath: rayDistanceG
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215619233150373412, guid: fdb6b852f78e8154da08e723b843341e, type: 3}
+      propertyPath: CurrentHealth
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3215619233150373412, guid: fdb6b852f78e8154da08e723b843341e, type: 3}
       propertyPath: DetectionAttack

@@ -32,6 +32,11 @@ public class Bullet : MonoBehaviour
                 playerStats.CurrentHealth -= 1;
             }
 
+            if (playerStats.CurrentHealth == 0)
+            {
+                Destroy(collision.gameObject);
+            }
+
             Destroy(gameObject);
         }
     }
