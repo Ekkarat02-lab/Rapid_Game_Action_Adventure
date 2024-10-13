@@ -1,13 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : UnitStats
 {
-    public static PlayerStats Instance;
 
-    public float maxHealth;
-    public float CurrentHealth;
+    
     private void Awake()
     {
         Instance = this;
@@ -27,4 +25,6 @@ public class PlayerStats : MonoBehaviour
     {
         maxHealth = value;
     }
+    // Coroutine ที่ทำร้ายผู้เล่น 1 หน่วยต่อวินาที
+
 }

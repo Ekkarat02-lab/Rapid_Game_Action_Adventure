@@ -16,7 +16,7 @@ public class DamageZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInZone = true; // ผู้เล่นอยู่ในโซน
-            PlayerMovement player = other.GetComponent<PlayerMovement>(); // ดึงข้อมูลผู้เล่น
+            PlayerStats player = other.GetComponent<PlayerStats>(); // ดึงข้อมูลผู้เล่น
             playerMaterial = player.GetComponent<SpriteRenderer>().material; // ดึง Material จาก SpriteRenderer ของผู้เล่น
             originalColor = playerMaterial.color; // เก็บสีดั้งเดิมของผู้เล่น
             StartCoroutine(DamagePlayer(player)); // เริ่มทำร้ายผู้เล่น
@@ -38,15 +38,15 @@ public class DamageZone : MonoBehaviour
     }
 
     // Coroutine ที่ทำร้ายผู้เล่น 1 หน่วยต่อวินาที
-    private IEnumerator DamagePlayer(PlayerMovement player)
+    private IEnumerator DamagePlayer(PlayerStats player)
     {
         while (isPlayerInZone && player != null)
         {
             // ลด HP ของผู้เล่น
-            player.currentHP -= damagePerSecond;
+            player.CurrentHealth -= damagePerSecond;
 
             // คำนวณอัตราส่วนของ HP ที่เหลืออยู่
-            float healthPercent = (float)player.currentHP / player.maxHP;
+            float healthPercent = (float)player.CurrentHealth / player.maxHealth;
 
             // ใช้ Lerp เปลี่ยนสี Material ของผู้เล่นให้ค่อย ๆ เปลี่ยนตาม HP
             if (playerMaterial != null)
@@ -55,9 +55,9 @@ public class DamageZone : MonoBehaviour
             }
 
             // เช็คว่า HP ของผู้เล่นเหลือ 0 หรือไม่
-            if (player.currentHP <= 0)
+            if (player.CurrentHealth <= 0)
             {
-                player.currentHP = 0;
+                player.CurrentHealth = 0;
                 // เรียกใช้ฟังก์ชัน game over หรือ logic อื่นๆ ที่ต้องการ
             }
 
