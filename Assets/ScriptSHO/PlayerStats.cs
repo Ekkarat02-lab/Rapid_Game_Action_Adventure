@@ -14,7 +14,7 @@ public class PlayerStats : UnitStats
     private void Start()
     {
         CurrentHealth = maxHealth;
-        HealthBar.instance.SetHealth(maxHealth);
+        HealthBar.instance.SetMaxHealth(maxHealth);
     }
     private void FixedUpdate()
     {

@@ -22,6 +22,7 @@ public class DamageZone : MonoBehaviour
             StartCoroutine(DamagePlayer(player)); // เริ่มทำร้ายผู้เล่น
         }
     }
+    
 
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -58,6 +59,7 @@ public class DamageZone : MonoBehaviour
             if (player.CurrentHealth <= 0)
             {
                 player.CurrentHealth = 0;
+                Destroy(gameObject);
                 // เรียกใช้ฟังก์ชัน game over หรือ logic อื่นๆ ที่ต้องการ
             }
 
