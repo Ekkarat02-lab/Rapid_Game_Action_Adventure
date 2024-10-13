@@ -17,14 +17,14 @@ public class BaseEnemyBehavior : MonoBehaviour
 
     public void Update()
     {
-        // อัปเดตพฤติกรรมตาม state ปัจจุบัน
+        // Behavior updates based on the current state
         switch (currentState)
         {
             case EnemyState.Idle:
                 IdleBehavior();
                 break;
             case EnemyState.Move:
-                MoveBehavior();  // เพิ่ม Move
+                MoveBehavior();
                 break;
             case EnemyState.Chase:
                 ChaseBehavior();
@@ -45,7 +45,7 @@ public class BaseEnemyBehavior : MonoBehaviour
 
         if (currentHP <= 0)
         {
-            currentState = EnemyState.Dead;  // เปลี่ยนสถานะเป็น Dead
+            currentState = EnemyState.Dead;  // State Dead
         }
     }
 

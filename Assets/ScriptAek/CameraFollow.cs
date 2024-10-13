@@ -8,6 +8,12 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
+        // Return early if player is null
+        if (player == null)
+        {
+            return;
+        }
+        
         // คำนวณตำแหน่งที่กล้องควรไป
         Vector3 desiredPosition = player.position + offset;
         

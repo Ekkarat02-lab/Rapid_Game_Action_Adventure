@@ -2,22 +2,25 @@ using UnityEngine;
 
 public class EnemyBehavior : BaseEnemyBehavior
 {
-    public Transform player;  // ผู้เล่น
-    public float moveSpeed = 2f;  // ความเร็วในการเคลื่อนที่ของศัตรู
-    public float chaseSpeed = 4f;  // ความเร็วในการไล่ตามผู้เล่น
-    public Vector2 moveDirection = Vector2.right;  // ทิศทางเริ่มต้นในการเดิน
-    public float patrolDistance = 5f;  // ระยะการเดินไป-กลับ
+    [Header("Player Detection and Movement")]
+    public Transform player;
+    public float moveSpeed = 2f; 
+    public float chaseSpeed = 4f;
+    public Vector2 moveDirection = Vector2.right;
+    public float patrolDistance = 5f;
     private Vector2 startPosition;
 
-    public float directionAttack = 1.5f;  // ระยะโจมตี
-    public float jumpForce = 5f;  // ความแรงในการกระโดด
-    private Rigidbody2D rb;  // Reference to the Rigidbody2D component
+    [Header("Attack and Jump")]
+    public float DetectionAttack = 1.5f;
+    public float jumpForce = 5f;
+    private Rigidbody2D rb;
 
+    [Header("Ground Check")]
     public Transform rayPointG;
     public float rayDistanceG;
     private int groundLayerIndex;
     protected bool isGrounded;
-    
+
     private void Start()
     {
         startPosition = transform.position;
@@ -28,40 +31,49 @@ public class EnemyBehavior : BaseEnemyBehavior
 
     private void Update()
     {
-        base.Update();  // เรียกการทำงานของ base class เพื่อจัดการ state
+        // Return early if player is null
+        if (player == null)
+        {
+            return;
+        }
+
+        base.Update();
         groundCheck();
-            
+    
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= directionAttack)
+        if (distanceToPlayer <= DetectionAttack)
         {
-            currentState = EnemyState.Attack;  // เปลี่ยนสถานะเป็น Attack เมื่อผู้เล่นอยู่ในระยะโจมตี
+            currentState = EnemyState.Attack;
         }
         else if (distanceToPlayer <= detectionRange)
         {
-            currentState = EnemyState.Chase;  // เปลี่ยนสถานะเป็น Chase เมื่อผู้เล่นอยู่ในระยะ
+            currentState = EnemyState.Chase;
         }
         else if (currentState == EnemyState.Chase && distanceToPlayer > detectionRange)
         {
-            currentState = EnemyState.Move;  // เปลี่ยนกลับเป็น Move เมื่อผู้เล่นออกจากระยะ
+            currentState = EnemyState.Move;
         }
     }
 
     protected override void MoveBehavior()
     {
-        // พฤติกรรมการเดินไป-กลับในระยะที่กำหนด
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
-        // ตรวจสอบระยะการเดินจากจุดเริ่มต้น
         if (Vector2.Distance(startPosition, transform.position) >= patrolDistance)
         {
-            moveDirection = -moveDirection;  // เปลี่ยนทิศทางเมื่อเดินถึงขอบเขต
+            moveDirection = -moveDirection; // Reverse direction when patrolDistance is reached
         }
     }
 
     protected override void ChaseBehavior()
     {
-        // ไล่ตามผู้เล่นเมื่ออยู่ในสถานะ Chase
+        // Return early if player is null
+        if (player == null)
+        {
+            return;
+        }
+
         Vector2 direction = (player.position - transform.position).normalized;
         transform.position = Vector2.MoveTowards(transform.position, player.position, chaseSpeed * Time.deltaTime);
     }
@@ -70,36 +82,55 @@ public class EnemyBehavior : BaseEnemyBehavior
     {
         if (collision.gameObject.CompareTag("Player") && currentState == EnemyState.Attack)
         {
-            // ทำลายผู้เล่นเมื่อถูกกระโดดใส่
-            Destroy(collision.gameObject);  // ทำให้ผู้เล่นหายไป
+            Destroy(collision.gameObject); 
             Debug.Log("Player destroyed!");
         }
         else if (collision.gameObject.CompareTag("Bullet"))
         {
-            // คำนวณทิศทางการสะท้อน
             Vector2 reflectDirection = (transform.position - collision.transform.position).normalized;
-            transform.Translate(reflectDirection * 1);  // สะท้อนจากทิศทางที่โดนกระสุน
+            transform.Translate(reflectDirection * 1);
+        }
+        else if (collision.gameObject.CompareTag("Box")) // Check for BoxCollider collision
+        {
+            HandleDirectionChange(collision);
+        }
+    }
+
+    private void HandleDirectionChange(Collision2D collision)
+    {
+        // Check if the enemy hits something on the left or right
+        if (collision.contacts[0].normal.x > 0) // Hit from the left side
+        {
+            moveDirection = Vector2.right; // Move right
+        }
+        else if (collision.contacts[0].normal.x < 0) // Hit from the right side
+        {
+            moveDirection = Vector2.left; // Move left
         }
     }
 
     protected override void AttackBehavior()
     {
-        // เมื่ออยู่ในสถานะ Attack ให้กระโดดไปหาผู้เล่น
         JumpTowardsPlayer();
     }
 
     private void JumpTowardsPlayer()
     {
+        // Return early if player is null
+        if (player == null)
+        {
+            return;
+        }
+
         if (isGrounded)
         {
-            // คำนวณทิศทางการกระโดด
             Vector2 jumpDirection = (player.position - transform.position).normalized;
-            // ใช้ AddForce เพื่อกระโดด
-            rb.velocity = new Vector2(jumpDirection.x * moveSpeed, jumpForce);  // กำหนดแรงกระโดด
+            rb.velocity = new Vector2(jumpDirection.x * moveSpeed, jumpForce);
             Debug.Log("Jumping towards Player!");
             isGrounded = false;
         }
     }
+
     public void groundCheck()
     {
         if (rayPointG == null)
@@ -111,23 +142,27 @@ public class EnemyBehavior : BaseEnemyBehavior
 
         if (hit.collider != null)
         {
-
             if (hit.collider.gameObject.layer == groundLayerIndex)
             {
                 isGrounded = true;
-                //animator.SetBool("IsJumping", false);
             }
             else
             {
                 isGrounded = false;
-                //animator.SetBool("IsJumping", true);
             }
         }
         else
         {
             isGrounded = false;
-            //animator.SetBool("IsJumping", true);
         }
         Debug.DrawRay(rayPointG.position, Vector2.down * rayDistanceG, Color.red);
+    }
+
+    public void OnDrawGizmosSelected()
+    {
+        base.OnDrawGizmosSelected();
+        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, DetectionAttack);
     }
 }

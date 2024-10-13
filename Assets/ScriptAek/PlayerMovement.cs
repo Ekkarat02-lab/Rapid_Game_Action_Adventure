@@ -8,11 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public float smoothTime = 0.3f;
     public Transform rayPointG;
     public float rayDistanceG;
-
-
+    
     protected bool isGrounded;
     protected Vector2 currentVelocity = Vector2.zero;
     private int groundLayerIndex;
+
+    public int maxHP = 100;
+    public int currentHP;
 
     private bool facingRight = true;
 
@@ -20,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Start()
     {
+        currentHP = maxHP;
         rb = GetComponent<Rigidbody2D>();
         //animator = GetComponent<Animator>();
         groundLayerIndex = LayerMask.NameToLayer("groundLayer");
