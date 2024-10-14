@@ -28,16 +28,13 @@ public class MeleeCombat : MonoBehaviour
           Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(meleePos.position, attackRange, Enemies);
                 
             for (int i = 0; i < enemiesToDamage.Length; i++)
-                {
-                    enemiesToDamage[i].GetComponent<EnemyState>().TakeDamage(damage);
-                }
+            {
+                enemiesToDamage[i].GetComponent<EnemyState>().TakeDamage(damage);
+            }
             Debug.Log("Attack");
             
             timeBtwAttack = startAttack;
-            
         }
-    
-        
     }
     private void OnDrawGizmosSelected()
     {

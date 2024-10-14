@@ -39,7 +39,7 @@ public class BaseBullet : MonoBehaviour
 
             if (enemyState.CurrentHealth == 0)
             {
-                Destroy(hitInfo.gameObject);
+                EnemyState.Instance.Die();
             }
             Destroy(gameObject);
         }
