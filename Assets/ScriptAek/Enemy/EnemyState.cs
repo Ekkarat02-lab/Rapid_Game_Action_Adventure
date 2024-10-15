@@ -4,12 +4,15 @@ public class EnemyState : MonoBehaviour
 {
     public static EnemyState Instance;
     
-    public enum State { Idle, Move, Chase, Attack, Dead }  // เพิ่ม Move
-    public State currentState = State.Idle;            // สถานะเริ่มต้นเป็น Idle
+    public enum State { Idle, Move, Chase, Attack, Dead }
+    public State currentState = State.Idle;            
 
+    [Header("Health And Damage")]
+    public int Damage;
+    
     public int maxHP = 100;
-    public int CurrentHealth;
-    public float detectionRange = 5f;  // ระยะที่ศัตรูตรวจจับผู้เล่น
+    public float CurrentHealth;
+    public float detectionRange = 5f;
 
     private void Awake()
     {
@@ -44,14 +47,16 @@ public class EnemyState : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
         Debug.Log("Enemy HP: " + CurrentHealth);
 
         if (CurrentHealth <= 0)
         {
+            CurrentHealth = 0;
             currentState = State.Dead;  // State Dead
+            Die();
         }
     }
 

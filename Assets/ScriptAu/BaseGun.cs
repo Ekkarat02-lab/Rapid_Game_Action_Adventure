@@ -15,6 +15,7 @@ public class BaseGun : MonoBehaviour
     private float timer;
     private bool isReloading;
     private bool canShoot = true;
+    
     // Update is called once per frame
     void Update()
     {

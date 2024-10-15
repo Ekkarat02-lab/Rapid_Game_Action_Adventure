@@ -10,6 +10,7 @@ public class MeleeCombat : MonoBehaviour
     public LayerMask Enemies;
     public float attackRange;
     public int damage;
+    
     // Start is called before the first frame update
     void Start()
     {

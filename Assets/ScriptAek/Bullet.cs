@@ -5,6 +5,8 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;
     public float lifetime = 3f;
 
+    public int Damage;
+
     private Vector2 targetDirection;
 
     public void Initialize(Vector2 direction)
@@ -29,14 +31,8 @@ public class Bullet : MonoBehaviour
             PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
             if (playerStats != null)
             {
-                playerStats.CurrentHealth -= 1;
+                playerStats.TakeDamage(Damage);
             }
-
-            if (playerStats.CurrentHealth == 0)
-            {
-                Destroy(collision.gameObject);
-            }
-
             Destroy(gameObject);
         }
     }

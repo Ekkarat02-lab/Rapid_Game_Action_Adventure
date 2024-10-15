@@ -69,13 +69,14 @@ public class EnemyBehavior : EnemyState
 
     protected override void MoveBehavior()
     {
-        // Move the enemy using moveDirection and moveSpeed
+        // Basic movement logic
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
-        // Reverse direction if patrol distance is reached
+        // Patrol logic
         if (Vector2.Distance(startPosition, transform.position) >= patrolDistance)
         {
-            moveDirection = -moveDirection; // Reverse direction when patrolDistance is reached
+            moveDirection = -moveDirection; // Reverse direction when patrol distance is reached
+            startPosition = transform.position; // Update the start position after reversing
         }
     }
 
@@ -93,28 +94,34 @@ public class EnemyBehavior : EnemyState
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Check if the enemy collides with the player while in Attack state
         if (collision.gameObject.CompareTag("Player") && currentState == State.Attack)
         {
             PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
             if (playerStats != null)
             {
-                playerStats.CurrentHealth -= 1;
-            }
-            if(playerStats.CurrentHealth == 0)
-            {
-                Destroy(collision.gameObject);
+                playerStats.TakeDamage(Damage); // Deal damage to the player
+
+                // Destroy the player if health drops to zero or below
+                if (playerStats.CurrentHealth <= 0)
+                {
+                    Destroy(collision.gameObject);  // Destroy player GameObject
+                }
             }
         }
+        // Handle collision with Bullet (enemy reflects back)
         else if (collision.gameObject.CompareTag("Bullet"))
         {
             Vector2 reflectDirection = (transform.position - collision.transform.position).normalized;
             transform.Translate(reflectDirection * 1);
         }
-        else if (collision.gameObject.CompareTag("Box")) // Check for BoxCollider collision
+        // Handle collision with Box (enemy changes direction)
+        else if (collision.gameObject.CompareTag("Box"))
         {
             HandleDirectionChange(collision);
         }
     }
+
 
     private void HandleDirectionChange(Collision2D collision)
     {

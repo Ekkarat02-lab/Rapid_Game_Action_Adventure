@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : UnitStats
 {
-
-    
+    public static PlayerStats Instance;
     private void Awake()
     {
         Instance = this;
@@ -19,6 +18,17 @@ public class PlayerStats : UnitStats
     private void FixedUpdate()
     {
         HealthBar.instance.SetHealth(CurrentHealth);
+    }
+    
+    public void TakeDamage(float damageAmount)
+    {
+        CurrentHealth -= damageAmount;
+        Debug.Log("Player HP: " + CurrentHealth);
+        if (CurrentHealth <= 0 || CurrentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
+        // สามารถเพิ่มเอฟเฟกต์เสียง, การอัปเดต UI หรือการตอบสนองอื่นๆ เมื่อ HP ลดได้ที่นี่
     }
     
     public void ChangeValue (float value)

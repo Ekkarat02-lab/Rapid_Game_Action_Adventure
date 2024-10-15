@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class BaseBullet : MonoBehaviour
@@ -10,18 +9,17 @@ public class BaseBullet : MonoBehaviour
     public Rigidbody2D rb;
     public float lifeTime = 2f;
     private float timer;
-    public float damage;
-    // Start is called before the first frame update
+    public float damage = 10f;
+
     void Start()
     {
         rb.velocity = transform.right * speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer >= lifeTime)
+        if (timer >= lifeTime)
         {
             Destroy(gameObject);
         }
@@ -34,12 +32,7 @@ public class BaseBullet : MonoBehaviour
             EnemyState enemyState = hitInfo.gameObject.GetComponent<EnemyState>();
             if (enemyState != null)
             {
-                enemyState.CurrentHealth -= 1;
-            }
-
-            if (enemyState.CurrentHealth == 0)
-            {
-                EnemyState.Instance.Die();
+                enemyState.TakeDamage(damage);
             }
             Destroy(gameObject);
         }
@@ -47,7 +40,6 @@ public class BaseBullet : MonoBehaviour
 
     public void ChangeValue(float value)
     {
-        damage = value;
-
+        damage = value; 
     }
 }
