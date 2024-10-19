@@ -267,7 +267,8 @@ GameObject:
   - component: {fileID: 7522715279310086237}
   - component: {fileID: 797770193896087245}
   - component: {fileID: 7441319806810487973}
-  m_Layer: 0
+  - component: {fileID: 8911518668146543872}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -525,6 +526,21 @@ MonoBehaviour:
     m_Bits: 128
   attackRange: 0.77
   damage: 1
+--- !u!114 &8911518668146543872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489821562834176108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33655ff15bab9b54b8d40ac0decedbef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFull: 00
+  Slots:
+  - {fileID: 0}
 --- !u!1 &8438535968242045753
 GameObject:
   m_ObjectHideFlags: 0
