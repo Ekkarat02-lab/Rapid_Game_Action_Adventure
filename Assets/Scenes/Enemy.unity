@@ -906,7 +906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 770501918}
   m_Layer: 7
-  m_Name: FireRate (1)
+  m_Name: FireRate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -921,7 +921,7 @@ Transform:
   m_GameObject: {fileID: 770501917}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.010001, y: 0.7199998, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0.7199998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1507,8 +1507,8 @@ MonoBehaviour:
   maxHP: 100
   CurrentHealth: 0
   detectionRange: 5
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
+  bulletPrefab: {fileID: 7803903482384027142, guid: 77b993f45c4b84148bf2be81999509f4, type: 3}
+  firePoint: {fileID: 770501918}
   fireRate: 1
 --- !u!212 &1670727623
 SpriteRenderer:
