@@ -13,9 +13,9 @@ public class PlayerMovement : MonoBehaviour
     protected Vector2 currentVelocity = Vector2.zero;
     private int groundLayerIndex;
 
-
     private bool facingRight = true;
-
+    [SerializeField] private Vector3 gravity = new Vector3(0, -9.81f, 0);
+    [SerializeField] private float gravityX = 2f;
     //public Animator animator;
 
     public void Start()
@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("Rigidbody2D not found! Ensure it's attached to the GameObject.");
         }
-
+         Physics2D.gravity = gravity;
         /*if (animator == null)
         {
             Debug.LogError("Animator not found! Ensure it's attached to the GameObject.");
@@ -57,11 +57,16 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
 
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            PickupItem();
-        }
         FlipCharacterTowardsCursor();
+        if(isGrounded==false)
+        {
+            gravity = new Vector3(0,-9.81f * gravityX,0);
+            
+        }
+        if(isGrounded == true)
+        {
+            gravity = new Vector3(0, -9.81f, 0);
+        }
     }
 
 
@@ -168,8 +173,5 @@ public class PlayerMovement : MonoBehaviour
             //GameManager.Instance.CheckForCompletion();
         }*/
     }
-    public void PickupItem()
-    {
 
-    }
 }
