@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655077653038620528, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1750,6 +1750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1602149494854219089, guid: f20a47b7b58f0864d901eec4dc178f80, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7403590238621894827, guid: f20a47b7b58f0864d901eec4dc178f80, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.51
@@ -1909,6 +1913,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88163cace0ca44f409e2663dbdc7f522, type: 3}
+--- !u!1001 &7071138042159271625
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 993454804348724055, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993454804348724055, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993454804348724055, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993454804348724055, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 993454804348724055, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993454804348724055, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993454804348724055, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993454804348724055, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993454804348724055, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993454804348724055, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645815588174405164, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
+      propertyPath: m_Name
+      value: RoomSpawnEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d8f147c605dcf99469941ff46550b3cc, type: 3}
 --- !u!1001 &7511457001086506933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1963,7 +2024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5247004113039858108, guid: fdb6b852f78e8154da08e723b843341e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5747621699928614251, guid: fdb6b852f78e8154da08e723b843341e, type: 3}
       propertyPath: m_Mass
@@ -2035,10 +2096,11 @@ SceneRoots:
   - {fileID: 1488772348}
   - {fileID: 1260887074}
   - {fileID: 1501107866}
+  - {fileID: 6891275045962165660}
+  - {fileID: 6711875772935881989}
+  - {fileID: 1415099651}
+  - {fileID: 1783452467}
   - {fileID: 7511457001086506933}
   - {fileID: 4136660488577346174}
   - {fileID: 101171215}
-  - {fileID: 1415099651}
-  - {fileID: 1783452467}
-  - {fileID: 6891275045962165660}
-  - {fileID: 6711875772935881989}
+  - {fileID: 7071138042159271625}
