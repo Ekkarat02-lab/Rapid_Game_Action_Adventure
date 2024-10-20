@@ -204,8 +204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  Damage: 0
-  maxHP: 100
+  Damage: 5
+  maxHP: 2
   CurrentHealth: 0
   detectionRange: 5
   moveSpeed: 2

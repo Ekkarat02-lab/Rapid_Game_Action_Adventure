@@ -475,11 +475,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  jumpForce: 10
+  jumpForce: 7
   rb: {fileID: 1069081632337947526}
   smoothTime: 0.3
   rayPointG: {fileID: 6789101393401570315}
   rayDistanceG: 0.3
+  gravity: {x: 0, y: -9.81, z: 0}
+  gravityX: 2
 --- !u!114 &7522715279310086237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,8 +494,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1dc5fd5629cf4b4283cd0f122a74773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 45
-  CurrentHealth: 45
+  maxHealth: 40
+  CurrentHealth: 40
+  Damage: 1
 --- !u!114 &797770193896087245
 MonoBehaviour:
   m_ObjectHideFlags: 0
