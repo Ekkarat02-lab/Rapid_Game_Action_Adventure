@@ -6,6 +6,7 @@ public class CollidableObject : MonoBehaviour
 {
     public static CollidableObject Instance;
     private Collider2D Collider2D;
+    public bool isCollided = false;
 
     [SerializeField] private ContactFilter2D contactFilter;
     public List<Collider2D> objectCollided = new List<Collider2D>(1);
@@ -15,10 +16,6 @@ public class CollidableObject : MonoBehaviour
         if (Instance == null)
         { 
             Instance = this; 
-        }
-        else if(Instance != this)
-        { 
-            Destroy(gameObject); 
         }
     }
     protected virtual void Start()
@@ -37,6 +34,10 @@ public class CollidableObject : MonoBehaviour
     }
     protected virtual void OnCollided(GameObject collidedObj)
     {
-        Debug.Log("Collided with" + collidedObj.name);
+        if (collidedObj.CompareTag("Player")) 
+        { 
+            Debug.Log("Collided with" + collidedObj.name);
+            isCollided = true;
+        }
     }
 }
