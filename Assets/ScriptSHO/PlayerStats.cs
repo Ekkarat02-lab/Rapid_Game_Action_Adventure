@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerStats : UnitStats
 {
     public static PlayerStats Instance;
+
+    public int Damage = 1;
     private void Awake()
     {
         Instance = this;
@@ -26,10 +28,17 @@ public class PlayerStats : UnitStats
         Debug.Log("Player HP: " + CurrentHealth);
         if (CurrentHealth <= 0 || CurrentHealth == 0)
         {
+            // เพิ่ม Damage ของศัตรู 1 หน่วยเมื่อผู้เล่นตาย
+            if (EnemyState.Instance != null)
+            {
+                EnemyState.Instance.Damage += Damage;
+                Debug.Log("Enemy Damage Increased: " + EnemyState.Instance.Damage);
+            }
+
             Destroy(gameObject);
         }
-        // สามารถเพิ่มเอฟเฟกต์เสียง, การอัปเดต UI หรือการตอบสนองอื่นๆ เมื่อ HP ลดได้ที่นี่
     }
+
     
     public void ChangeValue (float value)
     {

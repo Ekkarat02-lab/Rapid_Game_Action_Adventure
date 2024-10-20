@@ -8,7 +8,7 @@ public class EnemyState : MonoBehaviour
     public State currentState = State.Idle;            
 
     [Header("Health And Damage")]
-    public int Damage;
+    public int Damage = 1;
     
     public int maxHP = 100;
     public float CurrentHealth;

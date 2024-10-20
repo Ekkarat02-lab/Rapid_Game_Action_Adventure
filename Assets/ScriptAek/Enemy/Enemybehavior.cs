@@ -28,6 +28,7 @@ public class EnemyBehavior : EnemyState
         rb = GetComponent<Rigidbody2D>();  // Get the Rigidbody2D component
         groundLayerIndex = LayerMask.NameToLayer("groundLayer");
         player = GameObject.FindGameObjectWithTag("Player")?.transform; // Find player by tag
+        CurrentHealth = maxHP;
     }
 
     private void Update()
