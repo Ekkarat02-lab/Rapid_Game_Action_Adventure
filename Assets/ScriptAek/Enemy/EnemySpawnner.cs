@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class EnemySpawnner : MonoBehaviour
 {
-    [SerializeField] private int spawnCount;
-    [SerializeField] private float spawnDelay;
+    public int spawnCount;
+    public float spawnDelay;
     
-    [SerializeField] private GameObject enemyToSpawn;
-    [SerializeField] private Transform[] spawnPoints;
+     public GameObject enemyToSpawn;
+     public Transform[] spawnPoints;
 
-    private PlayerStats stats;
-    private int currentSpawnIndex = 0;
-    private float spawnTime;
-    private int spawnedEnemy = 0;
-    private bool playerInRange = false;
-    private bool spawnerActive;
+    protected PlayerStats stats;
+    protected int currentSpawnIndex = 0;
+    protected float spawnTime;
+    protected int spawnedEnemy = 0;
+    protected bool playerInRange = false;
+    protected bool spawnerActive;
     // Start is called before the first frame update
     protected virtual void Start()
     {
         ResetSpawn();
-        stats = GetComponent<PlayerStats>();
+        stats = FindObjectOfType<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -64,7 +64,7 @@ public class EnemySpawnner : MonoBehaviour
             ResetSpawn();
         }
     }
-    private void ResetSpawn()
+    protected virtual void ResetSpawn()
     {
         spawnedEnemy = 0;
         spawnTime = 0f;
