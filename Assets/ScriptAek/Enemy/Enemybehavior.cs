@@ -110,12 +110,14 @@ public class EnemyBehavior : EnemyState
                 }
             }
         }
+        
         // Handle collision with Bullet (enemy reflects back)
-        else if (collision.gameObject.CompareTag("Bullet"))
+        /*else if (collision.gameObject.CompareTag("Bullet"))
         {
             Vector2 reflectDirection = (transform.position - collision.transform.position).normalized;
             transform.Translate(reflectDirection * 1);
-        }
+        }*/
+        
         // Handle collision with Box (enemy changes direction)
         else if (collision.gameObject.CompareTag("Box"))
         {
