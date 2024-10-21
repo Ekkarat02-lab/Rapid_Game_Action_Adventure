@@ -148,7 +148,7 @@ MonoBehaviour:
   Damage: 5
   maxHP: 100
   CurrentHealth: 0
-  detectionRange: 6
+  detectionRange: 10
   bulletPrefab: {fileID: 7803903482384027142, guid: 77b993f45c4b84148bf2be81999509f4, type: 3}
   firePoint: {fileID: 2095101316195611701}
   fireRate: 1
