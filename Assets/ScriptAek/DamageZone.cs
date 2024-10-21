@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DamageZone : MonoBehaviour
 {
-    public int damagePerSecond = 1;
+    public float damagePerSecond = 1;
     private bool isPlayerInZone = false;
     public GameObject gameOverUI;
     private Material playerMaterial;
@@ -39,7 +39,10 @@ public class DamageZone : MonoBehaviour
     {
         while (isPlayerInZone && player != null)
         {
-            player.CurrentHealth -= damagePerSecond;
+            if (player.CurrentHealth > 0) 
+            { 
+                player.CurrentHealth -= damagePerSecond;
+            }
 
             float healthPercent = (float)player.CurrentHealth / player.maxHealth;
 
@@ -55,8 +58,9 @@ public class DamageZone : MonoBehaviour
                 gameOverUI.SetActive(true);
                 
             }
-
-            yield return new WaitForSeconds(1f);
+            Debug.Log("Player's current health: " + player.CurrentHealth);
+            yield return new WaitForSeconds(2.15f);
+            
         }
     }
 }
