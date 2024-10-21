@@ -7,6 +7,8 @@ public class PlayerStats : UnitStats
     public static PlayerStats Instance;
 
     public int Damage = 1;
+    
+    public GameObject gameOverUI;
     private void Awake()
     {
         Instance = this;
@@ -34,8 +36,9 @@ public class PlayerStats : UnitStats
                 EnemyState.Instance.Damage += Damage;
                 Debug.Log("Enemy Damage Increased: " + EnemyState.Instance.Damage);
             }
-
-            Destroy(gameObject);
+            Time.timeScale = 0f;
+            gameOverUI.SetActive(true);
+           
         }
     }
 

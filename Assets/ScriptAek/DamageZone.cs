@@ -5,7 +5,7 @@ public class DamageZone : MonoBehaviour
 {
     public int damagePerSecond = 1;
     private bool isPlayerInZone = false;
-
+    public GameObject gameOverUI;
     private Material playerMaterial;
     private Color originalColor;
     private Color lowHpColor = Color.green; 
@@ -51,7 +51,9 @@ public class DamageZone : MonoBehaviour
             if (player.CurrentHealth <= 0)
             {
                 player.CurrentHealth = 0;
-                Destroy(player.gameObject);
+                Time.timeScale = 0f;
+                gameOverUI.SetActive(true);
+                
             }
 
             yield return new WaitForSeconds(1f);

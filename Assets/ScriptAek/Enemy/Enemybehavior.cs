@@ -106,7 +106,7 @@ public class EnemyBehavior : EnemyState
                 // Destroy the player if health drops to zero or below
                 if (playerStats.CurrentHealth <= 0)
                 {
-                    Destroy(collision.gameObject);  // Destroy player GameObject
+                    //Destroy(collision.gameObject);  // Destroy player GameObject
                 }
             }
         }
