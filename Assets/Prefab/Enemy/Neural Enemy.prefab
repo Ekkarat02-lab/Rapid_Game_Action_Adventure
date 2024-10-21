@@ -210,9 +210,9 @@ MonoBehaviour:
   detectionRange: 5
   moveSpeed: 2
   chaseSpeed: 3
-  moveDirection: {x: 3, y: 0}
+  moveDirection: {x: 1, y: 0}
   patrolDistance: 5
-  DetectionAttack: 1.5
+  DetectionAttack: 3
   jumpForce: 5
   rayPointG: {fileID: 6212531879425262406}
   rayDistanceG: 0.25

@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Box
   - OneWayPlatform
+  - Ground
   layers:
   - Default
   - TransparentFX
