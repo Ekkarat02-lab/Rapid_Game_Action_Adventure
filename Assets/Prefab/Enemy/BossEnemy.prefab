@@ -65,6 +65,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4527040163092603266}
+  - {fileID: 345952012654027665}
   - {fileID: 4425547540046348692}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,7 +111,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.08608723, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.84019756, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -215,11 +216,47 @@ MonoBehaviour:
   patrolDistance: 5
   DetectionAttack: 3
   jumpForce: 5
+  groundCheckPoint: {fileID: 345952012654027665}
+  groundCheckRadius: 0.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   rayPointG: {fileID: 4425547540046348692}
   rayDistanceG: 0.1
   bulletPrefab: {fileID: 7803903482384027142, guid: 77b993f45c4b84148bf2be81999509f4, type: 3}
   firePoint: {fileID: 4527040163092603266}
   fireRate: 1
+--- !u!1 &2720936558162967499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 345952012654027665}
+  m_Layer: 7
+  m_Name: Checkground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &345952012654027665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720936558162967499}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7403590238621894827}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8137214811452031786
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4425547540046348692}
   m_Layer: 7
-  m_Name: groundCheck
+  m_Name: Groundcheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -7,10 +7,9 @@ public class PlayerStats : UnitStats
     public static PlayerStats Instance;
 
     public int TakeDamageEnemy = 1;
-    
-    public Transform spawnPoint;
 
-    //public GameObject gameOverUI;
+    public GameObject gameOverUI;
+    
     private void Awake()
     {
         Instance = this;
@@ -39,31 +38,9 @@ public class PlayerStats : UnitStats
                 EnemyState.Instance.Damage += TakeDamageEnemy;
                 Debug.Log("Enemy Damage Increased: " + EnemyState.Instance.Damage);
             }
-
-            // ย้ายผู้เล่นกลับไปที่จุด Spawn
-            RespawnPlayer();
-
-            /* Time.timeScale = 0f;
-            gameOverUI.SetActive(true); */
-        }
-    }
-
-    public void RespawnPlayer()
-    {
-        // ย้าย Player กลับไปที่ตำแหน่ง Spawn
-        if (spawnPoint != null)
-        {
-            transform.position = spawnPoint.position;
-            Debug.Log("Player respawned at spawn point.");
             
-            // คืนค่า HP ของ Player เต็มหลัง respawn
-            CurrentHealth = maxHealth;
-            HealthBar.instance.SetMaxHealth(maxHealth);
-            HealthBar.instance.SetHealth(CurrentHealth);
-        }
-        else
-        {
-            Debug.LogWarning("Spawn point not set!");
+            Time.timeScale = 0f;
+            gameOverUI.SetActive(true); 
         }
     }
 

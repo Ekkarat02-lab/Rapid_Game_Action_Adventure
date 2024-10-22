@@ -18,11 +18,14 @@ public class BossEnemy : EnemyState
     private Rigidbody2D rb;
 
     [Header("Ground Check")]
+    public Transform groundCheckPoint;  // จุดตรวจสอบพื้น
+    public float groundCheckRadius = 0.2f;  // รัศมีวงกลมตรวจสอบ
+    public LayerMask groundLayer;  // เลเยอร์ของพื้นดิน
     public Transform rayPointG;
     public float rayDistanceG;
-    private int groundLayerIndex;
+
     protected bool isGrounded;
-    
+
     [Header("Bullet")]
     public GameObject bulletPrefab;
     public Transform firePoint;
@@ -30,13 +33,12 @@ public class BossEnemy : EnemyState
 
     private GameObject player;
     private float nextFireTime;
-
+    
     private void Start()
     {
         startPosition = transform.position;
         currentState = State.Move;
         rb = GetComponent<Rigidbody2D>();  // Get the Rigidbody2D component
-        groundLayerIndex = LayerMask.NameToLayer("groundLayer");
         playerFollow = GameObject.FindGameObjectWithTag("Player")?.transform; // Find player by tag
         player = GameObject.FindGameObjectWithTag("Player");
         CurrentHealth = maxHP;
@@ -44,6 +46,12 @@ public class BossEnemy : EnemyState
 
     private void Update()
     {
+        // Update player reference if it is null
+        if (player == null)
+        {
+            playerFollow = GameObject.FindGameObjectWithTag("Player")?.transform; // Update reference if player was lost
+        }
+        //Shoot
         if (player != null && Vector2.Distance(transform.position, player.transform.position) <= detectionRange)
         {
             if (Time.time >= nextFireTime)
@@ -52,18 +60,12 @@ public class BossEnemy : EnemyState
                 nextFireTime = Time.time + 1f / fireRate;
             }
         }
-        
-        // Update player reference if it is null
-        if (playerFollow == null)
-        {
-            playerFollow = GameObject.FindGameObjectWithTag("Player")?.transform; // Update reference if player was lost
-        }
 
         base.Update();
         groundCheck();
     
         // Check if the player exists
-        if (playerFollow != null)
+        if (player != null)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, playerFollow.position);
 
@@ -88,13 +90,6 @@ public class BossEnemy : EnemyState
         }
     }
 
-    void Shoot()
-    {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Vector2 direction = (player.transform.position - firePoint.position).normalized;
-        bullet.GetComponent<Bullet>().Initialize(direction);
-    }
-    
     protected override void MoveBehavior()
     {
         // Basic movement logic
@@ -111,7 +106,7 @@ public class BossEnemy : EnemyState
     protected override void ChaseBehavior()
     {
         // Return early if player is null
-        if (playerFollow == null)
+        if (player == null)
         {
             return;
         }
@@ -133,18 +128,20 @@ public class BossEnemy : EnemyState
                 // Destroy the player if health drops to zero or below
                 if (playerStats.CurrentHealth <= 0)
                 {
-                    Destroy(collision.gameObject);  // Destroy player GameObject
+                    //Destroy(collision.gameObject);  // Destroy player GameObject
                 }
             }
         }
+        
         // Handle collision with Bullet (enemy reflects back)
-        else if (collision.gameObject.CompareTag("Bullet"))
+        /*else if (collision.gameObject.CompareTag("Bullet"))
         {
             Vector2 reflectDirection = (transform.position - collision.transform.position).normalized;
             transform.Translate(reflectDirection * 1);
-        }
+        }*/
+        
         // Handle collision with Box (enemy changes direction)
-        else if (collision.gameObject.CompareTag("Box"))
+        else if (collision.gameObject.CompareTag("Ground"))
         {
             HandleDirectionChange(collision);
         }
@@ -172,7 +169,7 @@ public class BossEnemy : EnemyState
     private void JumpTowardsPlayer()
     {
         // Return early if player is null
-        if (playerFollow == null)
+        if (player == null)
         {
             return;
         }
@@ -188,32 +185,28 @@ public class BossEnemy : EnemyState
     
     public void groundCheck()
     {
-        if (rayPointG == null)
-        {
-            return; // Exit the method if rayPointG is null
-        }
+        // ตรวจสอบการชนของผู้เล่นกับพื้นดินโดยใช้ OverlapCircle
+        isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
 
-        RaycastHit2D hit = Physics2D.Raycast(rayPointG.position, Vector2.down, rayDistanceG);
-
-        if (hit.collider != null)
-        {
-            if (hit.collider.gameObject.layer == groundLayerIndex)
-            {
-                isGrounded = true;
-            }
-            else
-            {
-                isGrounded = false;
-            }
-        }
-        else
-        {
-            isGrounded = false;
-        }
+        // เพิ่ม Debug เพื่อช่วยตรวจสอบใน Scene
         Debug.DrawRay(rayPointG.position, Vector2.down * rayDistanceG, Color.red);
     }
 
-    public void OnDrawGizmosSelected()
+    void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Vector2 direction = (player.transform.position - firePoint.position).normalized;
+        bullet.GetComponent<Bullet>().Initialize(direction);
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        // แสดงรัศมีของ OverlapCircle ใน Scene เพื่อดูจุดตรวจสอบ
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
+    }
+
+    public void OnDrawGizmos()
     {
         base.OnDrawGizmosSelected();
         
