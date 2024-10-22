@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PickUp : InteractableObject
 {
     
     private InventorySystem inventory;
     public GameObject itemObject;
-
+    public ItemData itemData;
     protected override void Start()
     {
         base.Start();
@@ -29,6 +30,12 @@ public class PickUp : InteractableObject
             {
                 inventory.isFull[i] = true;
                 Instantiate(itemObject, inventory.Slots[i].transform, false);
+                /*Image itemImage = inventory.Slots[i].GetComponentInChildren<Image>();
+                if (itemImage != null)
+                {
+                    itemImage.sprite = itemData.itemSprite; // กำหนด Sprite จาก ItemData
+                }*/
+
                 Destroy(gameObject);
                 break;
             }

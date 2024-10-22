@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d7eb3dbb3cf9044a5ddcef450b6512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCollided: 0
   contactFilter:
     useTriggers: 1
     useLayerMask: 0
@@ -161,6 +162,7 @@ MonoBehaviour:
   objectCollided: []
   isInteracted: 0
   itemObject: {fileID: 722497831556010515}
+  itemData: {fileID: 0}
 --- !u!114 &6746420028791418046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,4 +177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: 
   ItemType: 
+  itemSprite: {fileID: 21300000, guid: be4f9b3c1290136408305fcf6d5ff257, type: 3}
   ItemDescription: 
+  isHealingItem: 1
