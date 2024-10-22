@@ -16,9 +16,12 @@ public class EnemyBehavior : EnemyState
     private Rigidbody2D rb;
 
     [Header("Ground Check")]
+    public Transform groundCheckPoint;  // จุดตรวจสอบพื้น
+    public float groundCheckRadius = 0.2f;  // รัศมีวงกลมตรวจสอบ
+    public LayerMask groundLayer;  // เลเยอร์ของพื้นดิน
     public Transform rayPointG;
     public float rayDistanceG;
-    private int groundLayerIndex;
+
     protected bool isGrounded;
 
     private void Start()
@@ -26,7 +29,6 @@ public class EnemyBehavior : EnemyState
         startPosition = transform.position;
         currentState = State.Move;
         rb = GetComponent<Rigidbody2D>();  // Get the Rigidbody2D component
-        groundLayerIndex = LayerMask.NameToLayer("groundLayer");
         player = GameObject.FindGameObjectWithTag("Player")?.transform; // Find player by tag
         CurrentHealth = maxHP;
     }
@@ -119,7 +121,7 @@ public class EnemyBehavior : EnemyState
         }*/
         
         // Handle collision with Box (enemy changes direction)
-        else if (collision.gameObject.CompareTag("Box"))
+        else if (collision.gameObject.CompareTag("Ground"))
         {
             HandleDirectionChange(collision);
         }
@@ -163,32 +165,21 @@ public class EnemyBehavior : EnemyState
     
     public void groundCheck()
     {
-        if (rayPointG == null)
-        {
-            return; // Exit the method if rayPointG is null
-        }
+        // ตรวจสอบการชนของผู้เล่นกับพื้นดินโดยใช้ OverlapCircle
+        isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
 
-        RaycastHit2D hit = Physics2D.Raycast(rayPointG.position, Vector2.down, rayDistanceG);
-
-        if (hit.collider != null)
-        {
-            if (hit.collider.gameObject.layer == groundLayerIndex)
-            {
-                isGrounded = true;
-            }
-            else
-            {
-                isGrounded = false;
-            }
-        }
-        else
-        {
-            isGrounded = false;
-        }
+        // เพิ่ม Debug เพื่อช่วยตรวจสอบใน Scene
         Debug.DrawRay(rayPointG.position, Vector2.down * rayDistanceG, Color.red);
     }
 
-    public void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
+    {
+        // แสดงรัศมีของ OverlapCircle ใน Scene เพื่อดูจุดตรวจสอบ
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
+    }
+
+    public void OnDrawGizmos()
     {
         base.OnDrawGizmosSelected();
         

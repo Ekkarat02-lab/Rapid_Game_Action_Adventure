@@ -10,7 +10,7 @@ public class EnemyState : MonoBehaviour
     [Header("Health And Damage")]
     public int Damage = 1;
     
-    public int maxHP = 100;
+    public float maxHP = 100;
     public float CurrentHealth;
     public float detectionRange = 5f;
 

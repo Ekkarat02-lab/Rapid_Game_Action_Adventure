@@ -597,7 +597,7 @@ MonoBehaviour:
   groundCheckRadius: 0.2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   rayPointG: {fileID: 6789101393401570315}
   rayDistanceG: 0.3
   gravity: {x: 0, y: -9.81, z: 0}
