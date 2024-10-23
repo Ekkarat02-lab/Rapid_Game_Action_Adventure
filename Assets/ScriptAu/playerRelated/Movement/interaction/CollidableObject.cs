@@ -36,7 +36,7 @@ public class CollidableObject : MonoBehaviour
     {
         if (collidedObj.CompareTag("Player")) 
         { 
-            Debug.Log("Collided with" + collidedObj.name);
+            //Debug.Log("Collided with" + collidedObj.name);
             isCollided = true;
         }
     }
