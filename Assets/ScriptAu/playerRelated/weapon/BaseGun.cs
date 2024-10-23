@@ -19,7 +19,6 @@ public class BaseGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotateGunTowardsCursor();
         timer += Time.deltaTime;
         canShoot = false;
         if(Input.GetKey(KeyCode.Mouse0) && timer >= fireRate && bulletsAmount > 0 && !isReloading)
@@ -33,20 +32,7 @@ public class BaseGun : MonoBehaviour
             StartCoroutine(Reload());
         }
     }
-    void RotateGunTowardsCursor()
-    {
-        // Get the mouse position in world space
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // Get the direction from the gun to the mouse
-        Vector3 direction = mousePos - transform.position;
-
-        // Calculate the angle in degrees
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Apply the rotation to the gun
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-    }
     void Shoot()
     { 
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

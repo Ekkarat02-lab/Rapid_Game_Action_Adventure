@@ -85,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+        RotateGunTowardsCursor();
     }
 
     private void FlipCharacter(float horizontalInput)
@@ -96,6 +97,30 @@ public class PlayerMovement : MonoBehaviour
         else if (horizontalInput < 0 && facingRight)
         {
             Flip();
+        }
+        
+    }
+    void RotateGunTowardsCursor()
+    {
+        Transform armTransform = transform.Find("Pivot");
+        // Get the mouse position in world space
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        // Get the direction from the gun to the mouse
+        Vector3 direction = mousePos - armTransform.position;
+
+        // Calculate the angle in degrees
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Apply the rotation to the arm
+        if (facingRight)
+        {
+            armTransform.rotation = Quaternion.Euler(0f, 0f, angle);  // No flip
+        }
+        else
+        {
+            // When the player is flipped, adjust the angle to keep the arm correct
+            armTransform.rotation = Quaternion.Euler(180f, 0f, -angle);
         }
     }
 
