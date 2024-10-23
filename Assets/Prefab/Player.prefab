@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 797770193896087245}
   - component: {fileID: 7441319806810487973}
   - component: {fileID: 8911518668146543872}
+  - component: {fileID: 3288633647804928222}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -616,7 +617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 40
   CurrentHealth: 40
-  Damage: 1
+  TakeDamageEnemy: 1
   gameOverUI: {fileID: 0}
 --- !u!114 &797770193896087245
 MonoBehaviour:
@@ -665,6 +666,19 @@ MonoBehaviour:
   isFull: 00
   Slots:
   - {fileID: 0}
+--- !u!114 &3288633647804928222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489821562834176108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac87041fc67fd64eb0b02b388517b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryUi: {fileID: 0}
 --- !u!1 &8438535968242045753
 GameObject:
   m_ObjectHideFlags: 0
