@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2899615879563160601}
   - component: {fileID: 6627753247316585284}
   - component: {fileID: 5281794503173658697}
-  - component: {fileID: 6746420028791418046}
+  - component: {fileID: 2379301984040285488}
   m_Layer: 8
   m_Name: med_Item
   m_TagString: Untagged
@@ -163,7 +163,7 @@ MonoBehaviour:
   isInteracted: 0
   itemObject: {fileID: 722497831556010515}
   itemData: {fileID: 0}
---- !u!114 &6746420028791418046
+--- !u!114 &2379301984040285488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,8 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04beaf9c9094cfb40b342215c7227933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  main: {fileID: 21300000, guid: be4f9b3c1290136408305fcf6d5ff257, type: 3}
+  playerStats: {fileID: 0}
   ItemName: 
   ItemType: 
-  itemSprite: {fileID: 21300000, guid: be4f9b3c1290136408305fcf6d5ff257, type: 3}
   ItemDescription: 
   isHealingItem: 1

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class PickUp : InteractableObject
 {
     
     private InventorySystem inventory;
-    public GameObject itemObject;
+    //public GameObject itemObject;
     public ItemData itemData;
     protected override void Start()
     {
@@ -24,17 +25,26 @@ public class PickUp : InteractableObject
     private void PickUpItem()
     {
         isInteracted = true;
-        for (int i = 0; i < inventory.Slots.Length; i++)
+        for (int i = 0; i < inventory.SlotObjects.Length; i++)
         {
             if (inventory.isFull[i] == false)
             {
                 inventory.isFull[i] = true;
-                Instantiate(itemObject, inventory.Slots[i].transform, false);
-                /*Image itemImage = inventory.Slots[i].GetComponentInChildren<Image>();
+               
+               
+
+                // สร้างสำเนา ItemData เพื่อเก็บใน Inventory
+                ItemData newItemData = Instantiate(itemData);
+                inventory.Slots[i] = newItemData;  // เก็บข้อมูลใน Slots
+
+                //Instantiate(itemObject, inventory.SlotObjects[i].transform, false);
+                Image itemImage = inventory.SlotObjects[i].GetComponentInChildren<Image>();
+                                
                 if (itemImage != null)
                 {
-                    itemImage.sprite = itemData.itemSprite; // กำหนด Sprite จาก ItemData
-                }*/
+                    itemImage.sprite = itemData.main; // กำหนด Sprite จาก ItemData
+                }
+                
 
                 Destroy(gameObject);
                 break;
