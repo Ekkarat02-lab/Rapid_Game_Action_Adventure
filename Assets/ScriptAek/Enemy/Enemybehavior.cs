@@ -80,9 +80,30 @@ public class EnemyBehavior : EnemyState
         {
             moveDirection = -moveDirection; // Reverse direction when patrol distance is reached
             startPosition = transform.position; // Update the start position after reversing
+
+            // Flip character when direction changes
+            FlipCharacter();
         }
     }
+    
+    // Flip the character based on moveDirection without changing its size
+    private void FlipCharacter()
+    {
+        Vector3 currentScale = transform.localScale; // Get the current scale
 
+        // Check if we are moving left (moveDirection.x < 0) or right (moveDirection.x > 0)
+        if (moveDirection.x < 0)
+        {
+            currentScale.x = -Mathf.Abs(currentScale.x); // Flip to face left, keep the same size
+        }
+        else if (moveDirection.x > 0)
+        {
+            currentScale.x = Mathf.Abs(currentScale.x); // Flip to face right, keep the same size
+        }
+
+        transform.localScale = currentScale; // Apply the adjusted scale
+    }
+    
     protected override void ChaseBehavior()
     {
         // Return early if player is null
@@ -91,10 +112,34 @@ public class EnemyBehavior : EnemyState
             return;
         }
 
+        // Calculate the direction towards the player
         Vector2 direction = (player.position - transform.position).normalized;
+
+        // Move towards the player
         transform.position = Vector2.MoveTowards(transform.position, player.position, chaseSpeed * Time.deltaTime);
+
+        // Flip character to face the player
+        FlipTowardsPlayer();
     }
 
+    // Flip the character to face the player
+    private void FlipTowardsPlayer()
+    {
+        Vector3 currentScale = transform.localScale;
+
+        // Check if the player is on the left or right of the enemy
+        if (player.position.x < transform.position.x)
+        {
+            currentScale.x = -Mathf.Abs(currentScale.x); // Player is on the left, flip to face left
+        }
+        else if (player.position.x > transform.position.x)
+        {
+            currentScale.x = Mathf.Abs(currentScale.x); // Player is on the right, flip to face right
+        }
+
+        transform.localScale = currentScale; // Apply the adjusted scale
+    }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the enemy collides with the player while in Attack state
