@@ -6,6 +6,11 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;
     public float smoothSpeed = 0.125f;
 
+    void Start()
+    {
+        Application.targetFrameRate = 60; // ตั้งค่า Frame Rate ที่ 60 FPS
+    }
+    
     void LateUpdate()
     {
         if (player == null)

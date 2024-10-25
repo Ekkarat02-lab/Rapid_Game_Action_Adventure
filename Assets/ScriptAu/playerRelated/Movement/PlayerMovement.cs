@@ -11,7 +11,10 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;  // เลเยอร์ของพื้นดิน
     public Transform rayPointG;
     public float rayDistanceG;
+    public Animator animator;
 
+    public float horizontalinput = 0;
+    
     protected bool isGrounded;
     protected Vector2 currentVelocity = Vector2.zero;
 
@@ -21,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
@@ -65,11 +69,13 @@ public class PlayerMovement : MonoBehaviour
     public void Move(float horizontalInput)
     {
         if (rb == null) return;
-
+        
         float targetVelocityX = horizontalInput * moveSpeed;
         float newVelocityX = Mathf.SmoothDamp(rb.velocity.x, targetVelocityX, ref currentVelocity.x, smoothTime);
         rb.velocity = new Vector2(newVelocityX, rb.velocity.y);
 
+        animator.SetFloat("Speed", Mathf.Abs(newVelocityX));
+        
         FlipCharacter(horizontalInput);
     }
 
