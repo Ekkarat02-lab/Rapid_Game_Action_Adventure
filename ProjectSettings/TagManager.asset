@@ -9,6 +9,8 @@ TagManager:
   - Box
   - OneWayPlatform
   - Ground
+  - FxTemporaire
+  - Event
   layers:
   - Default
   - TransparentFX

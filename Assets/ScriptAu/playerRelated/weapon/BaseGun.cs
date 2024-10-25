@@ -68,4 +68,9 @@ public class BaseGun : MonoBehaviour
         isReloading = false;
         canShoot = true;
     }
+    public void ChangeValue(float value)
+    {
+        fireRate -= value;
+         
+    }
 }

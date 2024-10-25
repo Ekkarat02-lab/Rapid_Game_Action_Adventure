@@ -46,6 +46,8 @@ public class PlayerStats : UnitStats
 
     public void ChangeValue(float value)
     {
-        maxHealth = value;
+        maxHealth += value;
+        CurrentHealth = maxHealth;
+        HealthBar.instance.SetMaxHealth(maxHealth);
     }
 }
