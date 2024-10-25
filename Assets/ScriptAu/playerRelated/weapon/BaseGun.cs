@@ -14,18 +14,28 @@ public class BaseGun : MonoBehaviour
     public Transform firePoint;
     private float timer;
     private bool isReloading;
-    private bool canShoot = true;
-    
+    private bool canShoot;
+
+    void Start()
+    {
+        canShoot = false;
+    }
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        canShoot = false;
-        if(Input.GetKey(KeyCode.Mouse0) && timer >= fireRate && bulletsAmount > 0 && !isReloading)
-        {   
+        if (Input.GetKey(KeyCode.Mouse1))
+        { 
             canShoot = true;
-            Shoot();
-            timer = 0;
+            if (Input.GetKey(KeyCode.Mouse0) && timer >= fireRate && bulletsAmount > 0 && !isReloading && canShoot)
+            {            
+                Shoot();
+                timer = 0;
+            }
+            if(Input.GetKeyUp(KeyCode.Mouse1))
+            {
+                canShoot = false;
+            }
         }
         if (Input.GetKeyDown(KeyCode.R) && magazineAmount > 0 && bulletsAmount < maxBullets && !isReloading)
         {
