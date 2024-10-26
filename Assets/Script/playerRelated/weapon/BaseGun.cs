@@ -15,6 +15,11 @@ public class BaseGun : MonoBehaviour
     private float timer;
     private bool isReloading;
     private bool canShoot;
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -30,6 +35,7 @@ public class BaseGun : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0) && timer >= fireRate && bulletsAmount > 0 && !isReloading && canShoot)
             {            
                 Shoot();
+                audioManager.PlaySFX(audioManager.gunfire);
                 timer = 0;
             }
             if(Input.GetKeyUp(KeyCode.Mouse1))

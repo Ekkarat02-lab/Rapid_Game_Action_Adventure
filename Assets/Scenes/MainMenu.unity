@@ -622,6 +622,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newScene: 
+  respawnPlayer: {fileID: 0}
+  player: {fileID: 0}
+  destroyCountText: {fileID: 0}
+  gameOverUI: {fileID: 0}
 --- !u!114 &300212495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,7 +723,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1678690317}
   m_HandleRect: {fileID: 827862011}
   m_Direction: 0
-  m_MinValue: 0.001
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.5
@@ -1324,7 +1328,7 @@ AudioSource:
   m_GameObject: {fileID: 840099531}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7362306772347888931, guid: 3e9d71af633f0f2439977ec19d663982, type: 2}
+  OutputAudioMixerGroup: {fileID: -5085392346008746111, guid: 3e9d71af633f0f2439977ec19d663982, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1740,7 +1744,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7362306772347888931, guid: 3e9d71af633f0f2439977ec19d663982, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2251,7 +2255,8 @@ MonoBehaviour:
   musicSource: {fileID: 983748283}
   SFXSource: {fileID: 840099532}
   background: {fileID: 8300000, guid: 8da9e9069233a5f47b4e45b4e779516c, type: 3}
-  death: {fileID: 0}
+  gunfire: {fileID: 8300000, guid: 303c343b4d4a91e47ad835a0730f1a60, type: 3}
+  death: {fileID: 8300000, guid: 2361910fe52b17b4bb2cf51ff8b24bad, type: 3}
 --- !u!1 &1479478374
 GameObject:
   m_ObjectHideFlags: 0
