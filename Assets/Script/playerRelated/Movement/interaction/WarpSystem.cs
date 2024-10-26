@@ -5,23 +5,58 @@ using UnityEngine.UI;
 
 public class WarpSystem : MonoBehaviour
 {
+    [SerializeField]private WarpPoint[] warp;
     public Transform[] destination;
     public GameObject player;
     private int warpTo = 0;
     [SerializeField] private GameObject warpUi;
 
-    // Call this method from UI button
-    public void WarpToDestination(int index)
+
+    private void Start()
     {
-        if (index >= 0 && index < destination.Length) // Check if index is valid
+        if (warp == null) // Check if `warp` is already assigned
         {
-            warpTo = index;
-            player.transform.position = destination[warpTo].position; // Teleport player to destination
-            Debug.Log("Teleported to: " + destination[warpTo].name); // Optional log
+            warp = GetComponent<WarpPoint[]>();
+        }
+
+        if (warp == null) // If it's still null, log an error
+        {
+            Debug.LogError("WarpPoint reference is missing and could not be found on the GameObject!");
         }
         else
         {
-            Debug.LogError("Invalid destination index!");
+            warp[warpTo].warpIndex = 0; // Set default or relevant index
+        }
+    }
+    // Call this method from UI button
+    public void WarpToDestination(int index)
+    {
+        if (warp == null)
+        {
+            Debug.LogError("WarpPoint reference is missing!");
+            return;
+        }
+
+        if (warp[index].canWarpTo == null || index >= warp[index].canWarpTo.Length)
+        {
+            Debug.LogError("Warp destinations not initialized properly.");
+            return;
+        }
+
+        if (warp[index].canWarpTo[index] == true)
+        {
+            if (destination == null || index >= destination.Length || destination[index] == null)
+            {
+                Debug.LogError("Invalid destination or index in WarpSystem.");
+                return;
+            }
+
+            player.transform.position = destination[index].position; // Teleport player to destination
+            Debug.Log("Teleported to: " + destination[index].name); // Optional log
+        }
+        else
+        {
+            Debug.Log("Warp isn't unlocked for destination " + index);
         }
     }
     public Transform GetDestination() 
