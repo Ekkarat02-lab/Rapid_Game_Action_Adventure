@@ -2,25 +2,31 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Public Variables
+    [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
-    public Rigidbody2D rb;
     public float smoothTime = 0.3f;
-    public Transform groundCheckPoint;  // จุดตรวจสอบพื้น
-    public float groundCheckRadius = 0.2f;  // รัศมีวงกลมตรวจสอบ
-    public LayerMask groundLayer;  // เลเยอร์ของพื้นดิน
+
+    [Header("Ground Check Settings")]
+    public Transform groundCheckPoint;  
+    public float groundCheckRadius = 0.2f;
+    public LayerMask groundLayer;
+    
+    [Header("Gravity Settings")]
     public Transform rayPointG;
     public float rayDistanceG;
-    public Animator animator;
+    [SerializeField] private Vector3 gravity = new Vector3(0, -9.81f, 0);
+    [SerializeField] private float gravityX = 2f;
 
-    public float horizontalinput = 0;
-    
+    // Protected Variables
     protected bool isGrounded;
     protected Vector2 currentVelocity = Vector2.zero;
 
+    // Private Variables
     private bool facingRight = true;
-    [SerializeField] private Vector3 gravity = new Vector3(0, -9.81f, 0);
-    [SerializeField] private float gravityX = 2f;
+    private Rigidbody2D rb;
+    private Animator animator;
 
     public void Start()
     {
@@ -55,15 +61,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         FlipCharacterTowardsCursor();
-        
-        if (!isGrounded)
-        {
-            gravity = new Vector3(0, -9.81f * gravityX, 0);
-        }
-        else
-        {
-            gravity = new Vector3(0, -9.81f, 0);
-        }
+
+        gravity = isGrounded ? new Vector3(0, -9.81f, 0) : new Vector3(0, -9.81f * gravityX , 0);
     }
 
     public void Move(float horizontalInput)

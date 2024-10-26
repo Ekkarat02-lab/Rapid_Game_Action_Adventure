@@ -113,8 +113,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  objectCollided:
-  - {fileID: 5176925547955241545}
+  objectCollided: []
   isInteracted: 0
   Uishop: {fileID: 0}
 --- !u!61 &5176925547955241545
