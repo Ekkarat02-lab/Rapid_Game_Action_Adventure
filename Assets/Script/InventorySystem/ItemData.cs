@@ -11,8 +11,8 @@ public class ItemData : MonoBehaviour
     [SerializeField] private string ItemType;
     [SerializeField] private string ItemDescription;
    
-    public bool isHealingItem; // เพิ่มตัวแปรเพื่อตรวจสอบว่าเป็นไอเทมเพิ่มเลือดหรือไม่
-    public virtual void UseItem() // เปลี่ยนชื่อฟังก์ชันให้เป็น UseItem เพื่อความชัดเจน
+    public bool isHealingItem;
+    public virtual void UseItem()
     {
         if (isHealingItem)
         {
@@ -20,7 +20,7 @@ public class ItemData : MonoBehaviour
             
 
         }
-        Debug.Log($"{ItemName} ถูกใช้แล้ว");
+        Debug.Log($"{ItemName} ๏ฟฝูก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ");
     }
     public void Heal()
     {

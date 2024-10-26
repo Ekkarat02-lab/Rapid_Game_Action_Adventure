@@ -70,7 +70,7 @@ public class BaseGun : MonoBehaviour
     }
     public void ChangeValue(float value)
     {
-        fireRate -= value;
+        fireRate += value;
          
     }
 }

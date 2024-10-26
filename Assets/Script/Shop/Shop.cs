@@ -11,13 +11,13 @@ public class Shop : InteractableObject
     protected override void Start()
     {
         base.Start();
-        Uishop.SetActive(false);  // ปิดร้านค้าเริ่มต้น
+        Uishop.SetActive(false);
     }
     protected override void OnInteracted()
     {
-        // สลับสถานะการเปิด-ปิดร้านค้า
+
         isShopOpen = !isShopOpen;
-        Uishop.SetActive(isShopOpen);  // เปิดหรือปิดตามสถานะ
+        Uishop.SetActive(isShopOpen);  
         Debug.Log(isShopOpen ? "Shop Opened" : "Shop Closed");
     }
 }
