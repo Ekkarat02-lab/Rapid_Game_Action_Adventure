@@ -47353,7 +47353,7 @@ GameObject:
   m_Layer: 0
   m_Name: warp 2
   m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -50942,7 +50942,7 @@ GameObject:
   m_Layer: 0
   m_Name: warp 3
   m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -55163,7 +55163,7 @@ GameObject:
   m_Layer: 0
   m_Name: warp 1
   m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -84590,6 +84590,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1995565258}
     m_Modifications:
+    - target: {fileID: 1455711530012296232, guid: b8d276f2ff510934ead62339c28bf824, type: 3}
+      propertyPath: m_PointLightInnerAngle
+      value: 29.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455711530012296232, guid: b8d276f2ff510934ead62339c28bf824, type: 3}
+      propertyPath: m_PointLightOuterAngle
+      value: 183.02
+      objectReference: {fileID: 0}
     - target: {fileID: 3202630763722708485, guid: b8d276f2ff510934ead62339c28bf824, type: 3}
       propertyPath: m_Name
       value: Crystal_Blue3 (9)
@@ -84608,11 +84616,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4010975799896771193, guid: b8d276f2ff510934ead62339c28bf824, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.83
+      value: 46.76
       objectReference: {fileID: 0}
     - target: {fileID: 4010975799896771193, guid: b8d276f2ff510934ead62339c28bf824, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 4010975799896771193, guid: b8d276f2ff510934ead62339c28bf824, type: 3}
       propertyPath: m_LocalPosition.z
@@ -88739,6 +88747,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 949143263}
     m_Modifications:
     - target: {fileID: 5200024872378354963, guid: 391c5548c2b8fa34c9223efefe9c7776, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 5200024872378354963, guid: 391c5548c2b8fa34c9223efefe9c7776, type: 3}
       propertyPath: m_Name
       value: warpBase
       objectReference: {fileID: 0}
@@ -88748,7 +88760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6665798092884233862, guid: 391c5548c2b8fa34c9223efefe9c7776, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.95
+      value: 12.44
       objectReference: {fileID: 0}
     - target: {fileID: 6665798092884233862, guid: 391c5548c2b8fa34c9223efefe9c7776, type: 3}
       propertyPath: m_LocalPosition.z
@@ -88786,6 +88798,22 @@ PrefabInstance:
       propertyPath: warpUi
       value: 
       objectReference: {fileID: 661473131}
+    - target: {fileID: 8645876564864614228, guid: 391c5548c2b8fa34c9223efefe9c7776, type: 3}
+      propertyPath: m_Size.x
+      value: 1.594285
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645876564864614228, guid: 391c5548c2b8fa34c9223efefe9c7776, type: 3}
+      propertyPath: m_Size.y
+      value: 2.7382255
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645876564864614228, guid: 391c5548c2b8fa34c9223efefe9c7776, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.03177786
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645876564864614228, guid: 391c5548c2b8fa34c9223efefe9c7776, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.45858407
+      objectReference: {fileID: 0}
     - target: {fileID: 8645876564864614228, guid: 391c5548c2b8fa34c9223efefe9c7776, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
