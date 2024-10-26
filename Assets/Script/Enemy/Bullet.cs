@@ -26,7 +26,6 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // ตรวจสอบว่าชนกับ GameObject ที่มีแท็ก "Ground" หรือไม่
         if (collision.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);

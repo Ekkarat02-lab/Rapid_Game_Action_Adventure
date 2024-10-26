@@ -10,7 +10,7 @@ public class BossEnemy : EnemyState
     public Vector2 moveDirection = Vector2.right;
     public float patrolDistance = 5f;
     private Vector2 startPosition;
-    private Transform playerFollow; // Changed from public to private
+    private Transform playerFollow;
 
     [Header("Attack and Jump")]
     public float DetectionAttack = 1.5f;
@@ -18,9 +18,9 @@ public class BossEnemy : EnemyState
     private Rigidbody2D rb;
 
     [Header("Ground Check")]
-    public Transform groundCheckPoint;  // จุดตรวจสอบพื้น
-    public float groundCheckRadius = 0.2f;  // รัศมีวงกลมตรวจสอบ
-    public LayerMask groundLayer;  // เลเยอร์ของพื้นดิน
+    public Transform groundCheckPoint;  
+    public float groundCheckRadius = 0.2f;
+    public LayerMask groundLayer;
     public Transform rayPointG;
     public float rayDistanceG;
 

@@ -56244,6 +56244,22 @@ PrefabInstance:
       propertyPath: isHealingItem
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3399549034814657913, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3588816562067539512, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228585858921391224, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228585858921391224, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5281794503173658697, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
       propertyPath: itemData
       value: 
@@ -56264,17 +56280,29 @@ PrefabInstance:
       propertyPath: objectCollided.Array.data[0]
       value: 
       objectReference: {fileID: 250791728}
+    - target: {fileID: 6505124616533681145, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.9998956
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505124616533681145, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.9998956
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517235059383625569, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6746420028791418046, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
       propertyPath: main
       value: 
       objectReference: {fileID: 21300000, guid: eee8ad765a8284d469801bd76d86539a, type: 3}
     - target: {fileID: 7841930627889250668, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -951.45
+      value: -924.12
       objectReference: {fileID: 0}
     - target: {fileID: 7841930627889250668, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -516.19
+      value: -517.62
       objectReference: {fileID: 0}
     - target: {fileID: 7841930627889250668, guid: 8f71ce081dd09a8489765f4662319f59, type: 3}
       propertyPath: m_LocalPosition.z
@@ -64276,6 +64304,10 @@ PrefabInstance:
     - target: {fileID: 3608324832198472163, guid: 8fd02a92e86220c409f4f79253bfdac4, type: 3}
       propertyPath: objectCollided.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176925547955241545, guid: 8fd02a92e86220c409f4f79253bfdac4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5591217839002995521, guid: 8fd02a92e86220c409f4f79253bfdac4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -94495,6 +94527,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3026264665098299736, guid: e12f4a9723ab0d14b8a04563c8be37a8, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3288633647804928222, guid: e12f4a9723ab0d14b8a04563c8be37a8, type: 3}
       propertyPath: inventoryUi
       value: 
@@ -94627,6 +94663,14 @@ PrefabInstance:
       propertyPath: defaultSprite
       value: 
       objectReference: {fileID: 21300000, guid: eee8ad765a8284d469801bd76d86539a, type: 3}
+    - target: {fileID: 8911518668146543872, guid: e12f4a9723ab0d14b8a04563c8be37a8, type: 3}
+      propertyPath: useItemEffect
+      value: 
+      objectReference: {fileID: 9186446616439801708, guid: acdb90624a404aa438447006f1026065, type: 3}
+    - target: {fileID: 8911518668146543872, guid: e12f4a9723ab0d14b8a04563c8be37a8, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1581796705}
     - target: {fileID: 8911518668146543872, guid: e12f4a9723ab0d14b8a04563c8be37a8, type: 3}
       propertyPath: Slots.Array.size
       value: 6

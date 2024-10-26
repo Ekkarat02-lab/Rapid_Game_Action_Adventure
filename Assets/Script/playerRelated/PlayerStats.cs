@@ -32,7 +32,6 @@ public class PlayerStats : UnitStats
 
         if (CurrentHealth <= 0 || CurrentHealth == 0)
         {
-            // เพิ่ม Damage ของศัตรู 1 หน่วยเมื่อผู้เล่นตาย
             if (EnemyState.Instance != null)
             {
                 EnemyState.Instance.Damage += TakeDamageEnemy;

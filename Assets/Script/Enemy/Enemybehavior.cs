@@ -127,17 +127,15 @@ public class EnemyBehavior : EnemyState
     {
         Vector3 currentScale = transform.localScale;
 
-        // Check if the player is on the left or right of the enemy
         if (player.position.x < transform.position.x)
         {
-            currentScale.x = -Mathf.Abs(currentScale.x); // Player is on the left, flip to face left
+            currentScale.x = -Mathf.Abs(currentScale.x);
         }
         else if (player.position.x > transform.position.x)
         {
-            currentScale.x = Mathf.Abs(currentScale.x); // Player is on the right, flip to face right
+            currentScale.x = Mathf.Abs(currentScale.x);
         }
-
-        transform.localScale = currentScale; // Apply the adjusted scale
+        transform.localScale = currentScale;
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
@@ -148,13 +146,7 @@ public class EnemyBehavior : EnemyState
             PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
             if (playerStats != null)
             {
-                playerStats.TakeDamage(Damage); // Deal damage to the player
-
-                // Destroy the player if health drops to zero or below
-                if (playerStats.CurrentHealth <= 0)
-                {
-                    //Destroy(collision.gameObject);  // Destroy player GameObject
-                }
+                playerStats.TakeDamage(Damage); 
             }
         }
         
@@ -175,14 +167,13 @@ public class EnemyBehavior : EnemyState
 
     private void HandleDirectionChange(Collision2D collision)
     {
-        // Check if the enemy hits something on the left or right
-        if (collision.contacts[0].normal.x > 0) // Hit from the left side
+        if (collision.contacts[0].normal.x > 0)
         {
-            moveDirection = Vector2.right; // Move right
+            moveDirection = Vector2.right;
         }
-        else if (collision.contacts[0].normal.x < 0) // Hit from the right side
+        else if (collision.contacts[0].normal.x < 0)
         {
-            moveDirection = Vector2.left; // Move left
+            moveDirection = Vector2.left;
         }
     }
 
@@ -203,23 +194,19 @@ public class EnemyBehavior : EnemyState
         {
             Vector2 jumpDirection = (player.position - transform.position).normalized;
             rb.velocity = new Vector2(jumpDirection.x * moveSpeed, jumpForce);
-            //Debug.Log("Jumping towards Player!");
-            isGrounded = false; // Set isGrounded to false after jumping
+            isGrounded = false; 
         }
     }
     
     public void groundCheck()
     {
-        // ตรวจสอบการชนของผู้เล่นกับพื้นดินโดยใช้ OverlapCircle
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
 
-        // เพิ่ม Debug เพื่อช่วยตรวจสอบใน Scene
         Debug.DrawRay(rayPointG.position, Vector2.down * rayDistanceG, Color.red);
     }
 
     private void OnDrawGizmosSelected()
     {
-        // แสดงรัศมีของ OverlapCircle ใน Scene เพื่อดูจุดตรวจสอบ
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
     }

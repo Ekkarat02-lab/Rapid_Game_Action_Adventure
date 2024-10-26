@@ -11,7 +11,7 @@ public class CollidableObject : MonoBehaviour
     [SerializeField] private ContactFilter2D contactFilter;
     public List<Collider2D> objectCollided = new List<Collider2D>(1);
 
-    public void Awake()
+    private void Awake()
     {
         if (Instance == null)
         { 
@@ -31,12 +31,19 @@ public class CollidableObject : MonoBehaviour
         {
             OnCollided(o.gameObject);
         }
+
+        // เช็คว่ามี Player ใน objectCollided หรือไม่
+        bool playerInRange = objectCollided.Exists(c => c.CompareTag("Player"));
+        if (!playerInRange)
+        {
+            isCollided = false; // เปลี่ยน isCollided เป็น false เมื่อ Player ออกนอกระยะ
+        }
     }
+
     protected virtual void OnCollided(GameObject collidedObj)
     {
         if (collidedObj.CompareTag("Player")) 
         { 
-            //Debug.Log("Collided with" + collidedObj.name);
             isCollided = true;
         }
     }

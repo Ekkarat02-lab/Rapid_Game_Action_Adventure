@@ -37,8 +37,8 @@ public class ShopManagerScript : MonoBehaviour
     }
     public void AddCoins(float amount)
     {
-        coins += amount;  // เพิ่มจำนวนเหรียญ
-        CoinsTXT.text = "Coins: " + coins.ToString();  // อัปเดต UI
+        coins += amount;
+        CoinsTXT.text = "Coins: " + coins.ToString();
         Debug.Log("Added Coins: " + amount + " | Total: " + coins);
     }
     public void Buy()
@@ -48,23 +48,20 @@ public class ShopManagerScript : MonoBehaviour
         int upgradeID = buttonInfo.UpgradeID;
         int price = shopItems[2, upgradeID];
 
-        // ตรวจสอบเหรียญเพียงพอหรือไม่
         if (coins >= price)
         {
-            // หักเหรียญและอัปเดตจำนวนไอเท็มที่ซื้อ
             coins -= price;
             shopItems[3, upgradeID]++;
             CoinsTXT.text = "Coins: " + coins.ToString();
             buttonInfo.QuantityTxt.text = shopItems[3, upgradeID].ToString();
 
-            // ตรวจสอบประเภทการซื้อ
             if (buttonInfo.isHpUpgrade)
             {
-                playerStats.ChangeValue(10);  // เพิ่ม HP 10
+                playerStats.ChangeValue(10);
             }
             else if (buttonInfo.isReloadSpeedUpgrade)
             {
-                baseGun.ChangeValue(-0.1f);  // ลดเวลารีโหลดลง 0.1 วินาที
+                baseGun.ChangeValue(-0.1f);
             }
         }
         else

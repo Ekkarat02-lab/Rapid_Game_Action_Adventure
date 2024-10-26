@@ -30,19 +30,16 @@ public class PickUp : InteractableObject
             if (inventory.isFull[i] == false)
             {
                 inventory.isFull[i] = true;
-               
-               
 
-                // สร้างสำเนา ItemData เพื่อเก็บใน Inventory
                 ItemData newItemData = Instantiate(itemData);
-                inventory.Slots[i] = newItemData;  // เก็บข้อมูลใน Slots
+                inventory.Slots[i] = newItemData;
 
                 //Instantiate(itemObject, inventory.SlotObjects[i].transform, false);
                 Image itemImage = inventory.SlotObjects[i].GetComponentInChildren<Image>();
                                 
                 if (itemImage != null)
                 {
-                    itemImage.sprite = itemData.main; // กำหนด Sprite จาก ItemData
+                    itemImage.sprite = itemData.main;
                 }
                 
 
