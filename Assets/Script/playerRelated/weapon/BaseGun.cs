@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BaseGun : MonoBehaviour
 {
+    public static BaseGun instance;
     public int bulletsAmount;
     public int maxBullets;
     public int magazineAmount;
@@ -13,11 +14,12 @@ public class BaseGun : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     private float timer;
-    private bool isReloading;
-    private bool canShoot;
+    public bool isReloading;
+    public bool canShoot;
     AudioManager audioManager;
     private void Awake()
     {
+        instance = this;
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 

@@ -52,6 +52,8 @@ MonoBehaviour:
   fireRate: 0.5
   bulletPrefab: {fileID: 6547416070569555204, guid: af9ecc8e3308b914e81099a717233103, type: 3}
   firePoint: {fileID: 4693478106781529835}
+  isReloading: 0
+  canShoot: 0
 --- !u!1 &2018264154140657867
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,8 +858,9 @@ MonoBehaviour:
     m_Bits: 64
   rayPointG: {fileID: 6789101393401570315}
   rayDistanceG: 0.3
-  gravity: {x: 0, y: -9.81, z: 0}
-  gravityX: 2
+  jumpMultiplier: 2
+  fallMultiplier: 2
+  jumpTime: 0
 --- !u!114 &7522715279310086237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,13 +902,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21dc90df12b2074da749016cbc362d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gun: {fileID: 1335073458611447523}
+  slashEffect: {fileID: 4695490382098137218, guid: fb99b08b499964542aeed364bb4bd259, type: 3}
   startAttack: 0.3
   meleePos: {fileID: 203834134647117755}
   Enemies:
     serializedVersion: 2
     m_Bits: 128
   attackRange: 3.02
-  damage: 1
+  damage: 10
 --- !u!114 &8911518668146543872
 MonoBehaviour:
   m_ObjectHideFlags: 0

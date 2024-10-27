@@ -13,11 +13,13 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
     
-    [Header("Gravity Settings")]
+    [Header("Jump System")]
     public Transform rayPointG;
     public float rayDistanceG;
-    [SerializeField] private Vector3 gravity = new Vector3(0, -9.81f, 0);
-    [SerializeField] private float gravityX = 2f;
+    private Vector2 gravity;
+    [SerializeField] private float jumpMultiplier = 2f;
+    [SerializeField] private float fallMultiplier = 2f;
+    [SerializeField] private float jumpTime;
 
     // Protected Variables
     protected bool isGrounded;
@@ -27,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private Rigidbody2D rb;
     private Animator animator;
+    private float jumpcounter;
+    private bool isJumping;
 
     public void Start()
     {
@@ -36,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("Rigidbody2D not found! Ensure it's attached to the GameObject.");
         }
-        Physics2D.gravity = gravity;
+        gravity = new Vector2 (0, -Physics2D.gravity.y);
     }
 
     void Update()
@@ -59,10 +63,44 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping = false;
+            jumpcounter = 0f;
+
+            if(rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.6f);
+            }
+        }
+
+        if (rb.velocity.y > 0f && isJumping)
+        {
+            jumpcounter += Time.deltaTime;
+            if (jumpcounter > jumpTime)
+            {
+                isJumping = false;
+            }
+
+            float t = jumpcounter / jumpTime;
+            float currentJumpM = jumpMultiplier;
+
+            if(t > 0.5f)
+            {
+                currentJumpM = jumpMultiplier *(1 - t);
+            }
+
+            rb.velocity += gravity * currentJumpM * Time.deltaTime;
+        }
+
+        if (rb.velocity.y < 0f)
+        {
+            rb.velocity -= gravity * fallMultiplier * Time.deltaTime;
+        }
+
 
         FlipCharacterTowardsCursor();
 
-        gravity = isGrounded ? new Vector3(0, -9.81f, 0) : new Vector3(0, -9.81f * gravityX , 0);
     }
 
     public void Move(float horizontalInput)
@@ -141,7 +179,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             isGrounded = false;
+            isJumping = true;
+            jumpcounter = 0;
         }
+
     }
 
     public void groundCheck()
