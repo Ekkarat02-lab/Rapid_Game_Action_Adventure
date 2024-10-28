@@ -17,14 +17,10 @@ public class ItemData : MonoBehaviour
         if (isHealingItem)
         {
             Heal();
-            
-
         }
-        Debug.Log($"{ItemName} �١������");
     }
     public void Heal()
     {
         playerStats.CurrentHealth = playerStats.maxHealth;
     }
-
 }
