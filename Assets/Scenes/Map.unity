@@ -850,16 +850,28 @@ PrefabInstance:
       value: Enemy Turret (11)
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.46015653
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.42536867
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.46015653
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.93
+      value: 9.84
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -50.09
+      value: -52.36
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.010446385
+      value: -0.0104
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalRotation.w
@@ -892,6 +904,14 @@ PrefabInstance:
     - target: {fileID: 5405415689106682017, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3475,12 +3495,24 @@ PrefabInstance:
       value: Enemy Turret (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.48145735
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.44505915
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.48145735
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73.7
+      value: 74.8
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.9
+      value: -27.2
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3699,12 +3731,24 @@ PrefabInstance:
       value: Enemy Turret (4)
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3882
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3588521
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3882
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.25
+      value: 68.8502
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -46.8
+      value: -48.66
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3741,6 +3785,14 @@ PrefabInstance:
     - target: {fileID: 5405415689106682017, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.97
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4127,12 +4179,24 @@ PrefabInstance:
       value: Enemy Turret
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3231
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.29867363
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3231
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 93.4
+      value: 94.22
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -30.8
+      value: -32.21
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -49511,12 +49575,24 @@ PrefabInstance:
       value: Enemy Turret (5)
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3618
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3344479
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3618
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 88.88
+      value: 89.65
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -50.88
+      value: -52.46
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -49553,6 +49629,14 @@ PrefabInstance:
     - target: {fileID: 5405415689106682017, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -53885,12 +53969,24 @@ PrefabInstance:
       value: Enemy Turret (6)
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3525
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.325851
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3525
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 104.07
+      value: 103.61
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -47.87
+      value: -49.4375
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -53927,6 +54023,10 @@ PrefabInstance:
     - target: {fileID: 5405415689106682017, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -70913,12 +71013,24 @@ PrefabInstance:
       value: Enemy Turret (8)
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.20858118
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.19281243
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.20858118
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 81.12
+      value: 84.4837
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -71.94
+      value: -72.6253
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -70958,7 +71070,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.72
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -95263,12 +95379,24 @@ PrefabInstance:
       value: Enemy Turret (7)
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4573
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.42272812
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4573
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 103.64
+      value: 102.71
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -69.62
+      value: -69
       objectReference: {fileID: 0}
     - target: {fileID: 2095101316195611701, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -95305,6 +95433,14 @@ PrefabInstance:
     - target: {fileID: 5405415689106682017, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.311
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365913715689800798, guid: f22b6aeb8f76cf1458f456e6521e0e77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
