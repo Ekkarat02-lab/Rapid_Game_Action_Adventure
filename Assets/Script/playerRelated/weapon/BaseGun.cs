@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using TMPro;
 
 public class BaseGun : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class BaseGun : MonoBehaviour
     private float timer;
     public bool isReloading;
     public bool canShoot;
+    public TextMeshProUGUI bulletsText;
     AudioManager audioManager;
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class BaseGun : MonoBehaviour
     void Start()
     {
         canShoot = false;
+        UpdateBulletsUI();
     }
     // Update is called once per frame
     void Update()
@@ -55,6 +58,7 @@ public class BaseGun : MonoBehaviour
     { 
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         bulletsAmount -= 1;
+        UpdateBulletsUI();
     }
     IEnumerator Reload()
     {
@@ -75,6 +79,11 @@ public class BaseGun : MonoBehaviour
         
         isReloading = false;
         canShoot = true;
+        UpdateBulletsUI();
+    }
+    void UpdateBulletsUI()
+    {
+        bulletsText.text = $"{bulletsAmount} / {maxBullets}";
     }
     public void ChangeValue(float value)
     {

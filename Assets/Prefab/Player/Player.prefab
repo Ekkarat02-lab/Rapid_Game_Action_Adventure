@@ -47,13 +47,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletsAmount: 30
   maxBullets: 30
-  magazineAmount: 4
+  magazineAmount: 99
   reloadTime: 1.5
   fireRate: 0.5
   bulletPrefab: {fileID: 6547416070569555204, guid: af9ecc8e3308b914e81099a717233103, type: 3}
   firePoint: {fileID: 4693478106781529835}
   isReloading: 0
   canShoot: 0
+  bulletsText: {fileID: 0}
 --- !u!1 &2018264154140657867
 GameObject:
   m_ObjectHideFlags: 0
