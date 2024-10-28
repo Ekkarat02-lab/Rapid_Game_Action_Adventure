@@ -4549,7 +4549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 2099534457}
   baseGun: {fileID: 1504899248}
-  coins: 1000
+  coins: 0
   CoinsTXT: {fileID: 861751370}
 --- !u!4 &183028897
 Transform:
