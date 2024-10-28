@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   Damage: 5
-  maxHP: 3
+  maxHP: 20
   CurrentHealth: 0
   detectionRange: 7
   bulletPrefab: {fileID: 7803903482384027142, guid: 77b993f45c4b84148bf2be81999509f4, type: 3}

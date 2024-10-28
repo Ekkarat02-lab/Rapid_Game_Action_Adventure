@@ -228,14 +228,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  Damage: 0
-  maxHP: 100
+  Damage: 20
+  maxHP: 200
   CurrentHealth: 0
   detectionRange: 5
   moveSpeed: 2
   chaseSpeed: 4
   moveDirection: {x: 1, y: 0}
   patrolDistance: 5
+  animator: {fileID: 0}
   DetectionAttack: 3
   jumpForce: 5
   groundCheckPoint: {fileID: 345952012654027665}
