@@ -57322,7 +57322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1919329877}
   SFXSource: {fileID: 81445637}
-  background: {fileID: 8300000, guid: 8da9e9069233a5f47b4e45b4e779516c, type: 3}
+  background: {fileID: 8300000, guid: 729db91628622f04ebef3b54dd60a23c, type: 3}
   gunfire: {fileID: 8300000, guid: 303c343b4d4a91e47ad835a0730f1a60, type: 3}
   death: {fileID: 8300000, guid: 2361910fe52b17b4bb2cf51ff8b24bad, type: 3}
 --- !u!4 &777814293
