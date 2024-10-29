@@ -14,32 +14,44 @@ public class ScenesSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI destroyCountText;
     public GameObject gameOverUI;
     protected PlayerStats stats;
+
     void Start()
     {
         UpdateDestroyCountUI();
         stats = FindObjectOfType<PlayerStats>();
     }
+
     public void NewGame()
     {
         SceneManager.LoadScene(newScene);
     }
+
     public void TurnMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void GameOver()
+    {
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0f;  
+    }
+
     public void Respawn()
     {
         player.transform.position = respawnPlayer.position;  
         deathCount++;  
         UpdateDestroyCountUI();  
-        Time.timeScale = 1f;
+        Time.timeScale = 1f;  
         gameOverUI.SetActive(false);
         stats.CurrentHealth = stats.maxHealth;
     }
+
     public void UpdateDestroyCountUI()
     {
         destroyCountText.text = "Destroy Count: " + deathCount;
     }
+
     public void ExitGame()
     {
         Application.Quit();

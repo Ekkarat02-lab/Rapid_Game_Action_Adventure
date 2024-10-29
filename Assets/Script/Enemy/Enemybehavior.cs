@@ -163,8 +163,7 @@ public class EnemyBehavior : EnemyState
             HandleDirectionChange(collision);
         }
     }
-
-
+    
     private void HandleDirectionChange(Collision2D collision)
     {
         if (collision.contacts[0].normal.x > 0)
