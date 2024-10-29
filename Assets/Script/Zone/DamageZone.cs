@@ -59,7 +59,7 @@ public class DamageZone : MonoBehaviour
                 
             }
             Debug.Log("Player's current health: " + player.CurrentHealth);
-            yield return new WaitForSeconds(2.15f);
+            yield return new WaitForSeconds(1f);
             
         }
     }
