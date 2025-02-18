@@ -41,8 +41,6 @@ public class PickUp : InteractableObject
                 {
                     itemImage.sprite = itemData.main;
                 }
-                
-
                 Destroy(gameObject);
                 break;
             }

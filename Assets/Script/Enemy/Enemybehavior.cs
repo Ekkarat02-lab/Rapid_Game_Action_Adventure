@@ -49,15 +49,15 @@ public class EnemyBehavior : EnemyState
 
             if (distanceToPlayer <= DetectionAttack)
             {
-                currentState = State.Attack; // Attack state when within DetectionAttack range
+                currentState = State.Attack; 
             }
             else if (distanceToPlayer <= detectionRange)
             {
-                currentState = State.Chase; // Chase state when within detection range
+                currentState = State.Chase;
             }
             else
             {
-                currentState = State.Move; // Move state when out of detection range
+                currentState = State.Move;
             }
         }
         else

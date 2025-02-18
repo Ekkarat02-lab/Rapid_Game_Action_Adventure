@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    
+
+    public GameObject canvasWin;
+    private bool isWin;
     private void Awake()
     {
         // Singleton pattern
@@ -21,24 +23,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        CheckForBossEnemy();
-    }
-
-    private void CheckForBossEnemy()
-    {
         if (GameObject.Find("BossEnemy") == null)
         {
-            LoadCreditScene(); 
+            LoadCanvas(); 
         }
     }
 
-    public void LoadScene(string sceneName)
+    private void LoadCanvas()
     {
-        SceneManager.LoadScene(sceneName);
-    }
-
-    private void LoadCreditScene()
-    {
-        LoadScene("Credit");
+        canvasWin.SetActive(true);
     }
 }

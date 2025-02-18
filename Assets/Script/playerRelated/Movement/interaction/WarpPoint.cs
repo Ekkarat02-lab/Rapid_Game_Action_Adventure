@@ -11,8 +11,6 @@ public class WarpPoint : InteractableObject
     public int warpIndex;
     [SerializeField] private GameObject warpUi;
     
-    
-    
     protected override void Start()
     {
         Instance = this;

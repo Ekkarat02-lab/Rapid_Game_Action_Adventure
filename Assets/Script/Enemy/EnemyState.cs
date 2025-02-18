@@ -26,7 +26,6 @@ public class EnemyState : MonoBehaviour
 
     public void Update()
     {
-        // Behavior updates based on the current state
         switch (currentState)
         {
             case State.Idle:
@@ -55,45 +54,40 @@ public class EnemyState : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             CurrentHealth = 0;
-            currentState = State.Dead;  // State Dead
+            currentState = State.Dead;
             Die();
         }
     }
 
+    void IdleBehavior()
+    {
+
+    }
+    
+    protected virtual void MoveBehavior()
+    {
+
+    }
+
+    protected virtual void ChaseBehavior()
+    {
+        
+    }
+
+    protected virtual void AttackBehavior()
+    {
+        
+    }
+
+    void DeadBehavior()
+    {
+        Die();
+    }
+    
     public void Die()
     {
         Destroy(gameObject);
         Debug.Log("Enemy Die");
-    }
-
-    // ฟังก์ชันพฤติกรรมขณะ Idle
-    void IdleBehavior()
-    {
-        // สามารถใส่พฤติกรรมเช่นหยุดหรือรอที่นี่ได้
-    }
-
-    // ฟังก์ชันพฤติกรรมขณะเดิน
-    protected virtual void MoveBehavior()
-    {
-        // พฤติกรรมพื้นฐานสำหรับการเดิน (สามารถ override ใน EnemyBehavior)
-    }
-
-    // ฟังก์ชันพฤติกรรมขณะไล่ตามผู้เล่น
-    protected virtual void ChaseBehavior()
-    {
-        // พฤติกรรมพื้นฐานสำหรับการไล่ตามผู้เล่น (สามารถ override ใน EnemyBehavior)
-    }
-
-    // ฟังก์ชันพฤติกรรมขณะโจมตี
-    protected virtual void AttackBehavior()
-    {
-        // การโจมตีผู้เล่น
-    }
-
-    // ฟังก์ชันพฤติกรรมขณะ Dead
-    void DeadBehavior()
-    {
-        Die();  // เรียกฟังก์ชัน Die
     }
 
     public void OnDrawGizmosSelected()
